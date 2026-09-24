@@ -1,0 +1,53 @@
+[{"stream_name":"stdout","time":14.93153488,"data":"DATA /kaggle/input/cyrillic-morphological-induction-grand-challenge\n"}
+,{"stream_name":"stdout","time":15.200566966,"data":"device cuda MODE full EPOCHS 14 SEEDS [0, 1]\n"}
+,{"stream_name":"stdout","time":17.283449202,"data":"train rows 320000 {'dev_sample': 2000}\n"}
+,{"stream_name":"stderr","time":20.244692253,"data":"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/transformer.py:144: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True\n"}
+,{"stream_name":"stderr","time":20.24474615,"data":"  self.encoder = TransformerEncoder(\n"}
+,{"stream_name":"stdout","time":20.779769694,"data":"params 25.2M\n"}
+,{"stream_name":"stderr","time":28.46269386,"data":"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.\n"}
+,{"stream_name":"stderr","time":28.462734363,"data":"  key_padding_mask = F._canonical_mask(\n"}
+,{"stream_name":"stdout","time":1072.177426549,"data":"seed 0 epoch 0 loss 1.7934 time 1045s\n"}
+,{"stream_name":"stdout","time":2113.768739317,"data":"seed 0 epoch 1 loss 1.1072 time 1042s\n"}
+,{"stream_name":"stdout","time":3164.018106787,"data":"seed 0 epoch 2 loss 0.9799 time 1050s {'dev_sample': (0.3825, 0.1649)}\n"}
+,{"stream_name":"stdout","time":4202.365122378,"data":"seed 0 epoch 3 loss 0.9364 time 1038s\n"}
+,{"stream_name":"stdout","time":5239.537165243,"data":"seed 0 epoch 4 loss 0.9186 time 1037s\n"}
+,{"stream_name":"stdout","time":6284.799074167,"data":"seed 0 epoch 5 loss 0.9087 time 1045s {'dev_sample': (0.405, 0.1531)}\n"}
+,{"stream_name":"stdout","time":7320.626657389,"data":"seed 0 epoch 6 loss 0.9021 time 1036s\n"}
+,{"stream_name":"stdout","time":8356.653317239,"data":"seed 0 epoch 7 loss 0.8972 time 1036s\n"}
+,{"stream_name":"stdout","time":9403.477523932,"data":"seed 0 epoch 8 loss 0.8937 time 1047s {'dev_sample': (0.443, 0.1426)}\n"}
+,{"stream_name":"stdout","time":10439.751845204,"data":"seed 0 epoch 9 loss 0.8909 time 1036s\n"}
+,{"stream_name":"stdout","time":11476.091006092,"data":"seed 0 epoch 10 loss 0.8888 time 1036s\n"}
+,{"stream_name":"stdout","time":12521.740650998,"data":"seed 0 epoch 11 loss 0.8873 time 1046s {'dev_sample': (0.45, 0.1417)}\n"}
+,{"stream_name":"stdout","time":13557.949025637,"data":"seed 0 epoch 12 loss 0.8865 time 1036s\n"}
+,{"stream_name":"stdout","time":14603.535998899,"data":"seed 0 epoch 13 loss 0.8859 time 1046s {'dev_sample': (0.4605, 0.1393)}\n"}
+,{"stream_name":"stdout","time":14672.209910868,"data":"seed 0 FINAL beam dev_sample: single (0.484, 0.1365) ensemble-so-far (0.484, 0.1365)\n"}
+,{"stream_name":"stdout","time":15771.667232697,"data":"wrote submission with 1 models\n"}
+,{"stream_name":"stdout","time":15771.667286803,"data":"seed 0 done in 15752s\n"}
+,{"stream_name":"stderr","time":15772.348733084,"data":"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/transformer.py:144: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True\n"}
+,{"stream_name":"stderr","time":15772.348780114,"data":"  self.encoder = TransformerEncoder(\n"}
+,{"stream_name":"stdout","time":15772.567676075,"data":"params 25.2M\n"}
+,{"stream_name":"stdout","time":16821.613526233,"data":"seed 1 epoch 0 loss 1.7897 time 1049s\n"}
+,{"stream_name":"stdout","time":17863.362516383,"data":"seed 1 epoch 1 loss 1.1111 time 1042s\n"}
+,{"stream_name":"stdout","time":18910.298013057,"data":"seed 1 epoch 2 loss 0.9822 time 1047s {'dev_sample': (0.3735, 0.1636)}\n"}
+,{"stream_name":"stdout","time":19948.133137728,"data":"seed 1 epoch 3 loss 0.9387 time 1038s\n"}
+,{"stream_name":"stdout","time":20986.200873492,"data":"seed 1 epoch 4 loss 0.9200 time 1038s\n"}
+,{"stream_name":"stdout","time":22034.372130204,"data":"seed 1 epoch 5 loss 0.9096 time 1048s {'dev_sample': (0.4115, 0.1519)}\n"}
+,{"stream_name":"stdout","time":23069.746931102,"data":"seed 1 epoch 6 loss 0.9029 time 1035s\n"}
+,{"stream_name":"stdout","time":24105.03227035,"data":"seed 1 epoch 7 loss 0.8979 time 1035s\n"}
+,{"stream_name":"stdout","time":25149.85531432,"data":"seed 1 epoch 8 loss 0.8942 time 1045s {'dev_sample': (0.4565, 0.1398)}\n"}
+,{"stream_name":"stdout","time":26187.592986845,"data":"seed 1 epoch 9 loss 0.8914 time 1038s\n"}
+,{"stream_name":"stdout","time":27221.811080598,"data":"seed 1 epoch 10 loss 0.8893 time 1034s\n"}
+,{"stream_name":"stdout","time":28266.860019892,"data":"seed 1 epoch 11 loss 0.8877 time 1045s {'dev_sample': (0.4455, 0.1426)}\n"}
+,{"stream_name":"stdout","time":29302.063402142,"data":"seed 1 epoch 12 loss 0.8868 time 1035s\n"}
+,{"stream_name":"stdout","time":30348.314011323,"data":"seed 1 epoch 13 loss 0.8863 time 1046s {'dev_sample': (0.463, 0.1385)}\n"}
+,{"stream_name":"stdout","time":30414.158256518,"data":"seed 1 FINAL beam dev_sample: single (0.478, 0.1366) ensemble-so-far (0.4855, 0.1343)\n"}
+,{"stream_name":"stdout","time":31513.961424591,"data":"wrote submission with 2 models\n"}
+,{"stream_name":"stdout","time":31513.961489562,"data":"seed 1 done in 15742s\n"}
+,{"stream_name":"stdout","time":31513.978216331,"data":"ALL DONE\n"}
+,{"stream_name":"stderr","time":31522.222588608,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":31522.222648182,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":31522.73720663,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":31522.737237157,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":31523.852924612,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":31525.793082974,"data":"[NbConvertApp] Writing 392234 bytes to __results__.html\n"}
+]

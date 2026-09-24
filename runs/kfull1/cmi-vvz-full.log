@@ -1,0 +1,100 @@
+[{"stream_name":"stdout","time":9.439183492,"data":"device cuda MODE full EPOCHS 24 SEEDS [0, 1, 2]\n"}
+,{"stream_name":"stdout","time":11.200582191,"data":"train rows 320000 {'dev_sample': 2000}\n"}
+,{"stream_name":"stderr","time":13.202670751,"data":"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/transformer.py:144: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True\n"}
+,{"stream_name":"stderr","time":13.202738437,"data":"  self.encoder = TransformerEncoder(\n"}
+,{"stream_name":"stdout","time":13.661530259,"data":"params 14.6M\n"}
+,{"stream_name":"stderr","time":20.19467322,"data":"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.\n"}
+,{"stream_name":"stderr","time":20.194728154,"data":"  key_padding_mask = F._canonical_mask(\n"}
+,{"stream_name":"stdout","time":544.890650593,"data":"seed 0 epoch 0 loss 2.0541 time 526s\n"}
+,{"stream_name":"stdout","time":1082.478690952,"data":"seed 0 epoch 1 loss 1.1587 time 538s\n"}
+,{"stream_name":"stdout","time":1624.16400364,"data":"seed 0 epoch 2 loss 0.9976 time 542s {'dev_sample': (0.3405, 0.172)}\n"}
+,{"stream_name":"stdout","time":2158.345754602,"data":"seed 0 epoch 3 loss 0.9455 time 534s\n"}
+,{"stream_name":"stdout","time":2692.567672044,"data":"seed 0 epoch 4 loss 0.9226 time 534s\n"}
+,{"stream_name":"stdout","time":3230.636547785,"data":"seed 0 epoch 5 loss 0.9111 time 538s {'dev_sample': (0.434, 0.1451)}\n"}
+,{"stream_name":"stdout","time":3765.578108573,"data":"seed 0 epoch 6 loss 0.9046 time 535s\n"}
+,{"stream_name":"stdout","time":4299.961402617,"data":"seed 0 epoch 7 loss 0.8998 time 534s\n"}
+,{"stream_name":"stdout","time":4837.147630425,"data":"seed 0 epoch 8 loss 0.8965 time 537s {'dev_sample': (0.423, 0.1468)}\n"}
+,{"stream_name":"stdout","time":5370.50384996,"data":"seed 0 epoch 9 loss 0.8939 time 533s\n"}
+,{"stream_name":"stdout","time":5903.55593417,"data":"seed 0 epoch 10 loss 0.8918 time 533s\n"}
+,{"stream_name":"stdout","time":6440.279866687,"data":"seed 0 epoch 11 loss 0.8899 time 537s {'dev_sample': (0.4285, 0.1462)}\n"}
+,{"stream_name":"stdout","time":6972.72504716,"data":"seed 0 epoch 12 loss 0.8883 time 532s\n"}
+,{"stream_name":"stdout","time":7505.485073452,"data":"seed 0 epoch 13 loss 0.8870 time 533s\n"}
+,{"stream_name":"stdout","time":8043.591264233,"data":"seed 0 epoch 14 loss 0.8860 time 538s {'dev_sample': (0.4545, 0.1394)}\n"}
+,{"stream_name":"stdout","time":8576.020555243,"data":"seed 0 epoch 15 loss 0.8848 time 532s\n"}
+,{"stream_name":"stdout","time":9108.332686868,"data":"seed 0 epoch 16 loss 0.8838 time 532s\n"}
+,{"stream_name":"stdout","time":9644.695447563,"data":"seed 0 epoch 17 loss 0.8829 time 536s {'dev_sample': (0.453, 0.1408)}\n"}
+,{"stream_name":"stdout","time":10178.513680659,"data":"seed 0 epoch 18 loss 0.8822 time 534s\n"}
+,{"stream_name":"stdout","time":10710.92073861,"data":"seed 0 epoch 19 loss 0.8815 time 532s\n"}
+,{"stream_name":"stdout","time":11249.437680525,"data":"seed 0 epoch 20 loss 0.8810 time 539s {'dev_sample': (0.4815, 0.1326)}\n"}
+,{"stream_name":"stdout","time":11784.85853936,"data":"seed 0 epoch 21 loss 0.8806 time 535s\n"}
+,{"stream_name":"stdout","time":12319.557536737,"data":"seed 0 epoch 22 loss 0.8804 time 535s\n"}
+,{"stream_name":"stdout","time":12857.44325917,"data":"seed 0 epoch 23 loss 0.8803 time 538s {'dev_sample': (0.4875, 0.1307)}\n"}
+,{"stream_name":"stdout","time":12874.374639689,"data":"seed 0 FINAL beam dev_sample: single (0.4985, 0.1295) ensemble-so-far (0.4985, 0.1295)\n"}
+,{"stream_name":"stdout","time":13186.19102455,"data":"wrote submission with 1 models\n"}
+,{"stream_name":"stdout","time":13186.191078159,"data":"seed 0 done in 13173s\n"}
+,{"stream_name":"stderr","time":13186.453333615,"data":"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/transformer.py:144: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True\n"}
+,{"stream_name":"stderr","time":13186.45347706,"data":"  self.encoder = TransformerEncoder(\n"}
+,{"stream_name":"stdout","time":13186.586156065,"data":"params 14.6M\n"}
+,{"stream_name":"stdout","time":13748.409816918,"data":"seed 1 epoch 0 loss 2.0534 time 562s\n"}
+,{"stream_name":"stdout","time":14308.225763972,"data":"seed 1 epoch 1 loss 1.1648 time 560s\n"}
+,{"stream_name":"stdout","time":14872.454345578,"data":"seed 1 epoch 2 loss 0.9997 time 564s {'dev_sample': (0.3755, 0.1594)}\n"}
+,{"stream_name":"stdout","time":15430.142882686,"data":"seed 1 epoch 3 loss 0.9464 time 558s\n"}
+,{"stream_name":"stdout","time":15986.359242864,"data":"seed 1 epoch 4 loss 0.9233 time 556s\n"}
+,{"stream_name":"stdout","time":16545.209977101,"data":"seed 1 epoch 5 loss 0.9116 time 559s {'dev_sample': (0.4115, 0.1496)}\n"}
+,{"stream_name":"stdout","time":17099.959999817,"data":"seed 1 epoch 6 loss 0.9048 time 555s\n"}
+,{"stream_name":"stdout","time":17657.360118288,"data":"seed 1 epoch 7 loss 0.9004 time 557s\n"}
+,{"stream_name":"stdout","time":18215.41659475,"data":"seed 1 epoch 8 loss 0.8968 time 558s {'dev_sample': (0.4325, 0.1456)}\n"}
+,{"stream_name":"stdout","time":18769.674212905,"data":"seed 1 epoch 9 loss 0.8941 time 554s\n"}
+,{"stream_name":"stdout","time":19321.515641988,"data":"seed 1 epoch 10 loss 0.8919 time 552s\n"}
+,{"stream_name":"stdout","time":19878.766224127,"data":"seed 1 epoch 11 loss 0.8901 time 557s {'dev_sample': (0.432, 0.1457)}\n"}
+,{"stream_name":"stdout","time":20431.775949604,"data":"seed 1 epoch 12 loss 0.8886 time 553s\n"}
+,{"stream_name":"stdout","time":20987.284018806,"data":"seed 1 epoch 13 loss 0.8872 time 556s\n"}
+,{"stream_name":"stdout","time":21544.703659954,"data":"seed 1 epoch 14 loss 0.8859 time 557s {'dev_sample': (0.427, 0.1472)}\n"}
+,{"stream_name":"stdout","time":22099.495590418,"data":"seed 1 epoch 15 loss 0.8848 time 555s\n"}
+,{"stream_name":"stdout","time":22653.328184884,"data":"seed 1 epoch 16 loss 0.8838 time 554s\n"}
+,{"stream_name":"stdout","time":23207.874153315,"data":"seed 1 epoch 17 loss 0.8830 time 555s {'dev_sample': (0.452, 0.142)}\n"}
+,{"stream_name":"stdout","time":23761.301704015,"data":"seed 1 epoch 18 loss 0.8823 time 553s\n"}
+,{"stream_name":"stdout","time":24313.310338132,"data":"seed 1 epoch 19 loss 0.8815 time 552s\n"}
+,{"stream_name":"stdout","time":24869.421108249,"data":"seed 1 epoch 20 loss 0.8811 time 556s {'dev_sample': (0.4555, 0.1408)}\n"}
+,{"stream_name":"stdout","time":25421.687867026,"data":"seed 1 epoch 21 loss 0.8807 time 552s\n"}
+,{"stream_name":"stdout","time":25971.301429352,"data":"seed 1 epoch 22 loss 0.8805 time 550s\n"}
+,{"stream_name":"stdout","time":26509.522239968,"data":"seed 1 epoch 23 loss 0.8804 time 538s {'dev_sample': (0.4615, 0.1389)}\n"}
+,{"stream_name":"stdout","time":26526.731650178,"data":"seed 1 FINAL beam dev_sample: single (0.4905, 0.1332) ensemble-so-far (0.504, 0.1288)\n"}
+,{"stream_name":"stdout","time":26834.393147495,"data":"wrote submission with 2 models\n"}
+,{"stream_name":"stdout","time":26834.393202081,"data":"seed 1 done in 13648s\n"}
+,{"stream_name":"stdout","time":26834.782957868,"data":"params 14.6M\n"}
+,{"stream_name":"stdout","time":27375.78978802,"data":"seed 2 epoch 0 loss 2.0579 time 541s\n"}
+,{"stream_name":"stdout","time":27914.978455283,"data":"seed 2 epoch 1 loss 1.1566 time 539s\n"}
+,{"stream_name":"stdout","time":28457.868904125,"data":"seed 2 epoch 2 loss 0.9985 time 543s {'dev_sample': (0.3325, 0.168)}\n"}
+,{"stream_name":"stdout","time":28993.90772209,"data":"seed 2 epoch 3 loss 0.9469 time 536s\n"}
+,{"stream_name":"stdout","time":29529.811483993,"data":"seed 2 epoch 4 loss 0.9252 time 536s\n"}
+,{"stream_name":"stdout","time":30067.409624768,"data":"seed 2 epoch 5 loss 0.9133 time 538s {'dev_sample': (0.419, 0.1482)}\n"}
+,{"stream_name":"stdout","time":30601.778183691,"data":"seed 2 epoch 6 loss 0.9063 time 534s\n"}
+,{"stream_name":"stdout","time":31135.069576752,"data":"seed 2 epoch 7 loss 0.9010 time 533s\n"}
+,{"stream_name":"stdout","time":31672.650889323,"data":"seed 2 epoch 8 loss 0.8974 time 538s {'dev_sample': (0.4325, 0.1432)}\n"}
+,{"stream_name":"stdout","time":32206.834095141,"data":"seed 2 epoch 9 loss 0.8948 time 534s\n"}
+,{"stream_name":"stdout","time":32740.627612683,"data":"seed 2 epoch 10 loss 0.8925 time 534s\n"}
+,{"stream_name":"stdout","time":33279.995173236,"data":"seed 2 epoch 11 loss 0.8907 time 539s {'dev_sample': (0.4325, 0.1456)}\n"}
+,{"stream_name":"stdout","time":33814.976452757,"data":"seed 2 epoch 12 loss 0.8891 time 535s\n"}
+,{"stream_name":"stdout","time":34348.320432341,"data":"seed 2 epoch 13 loss 0.8877 time 533s\n"}
+,{"stream_name":"stdout","time":34885.119154095,"data":"seed 2 epoch 14 loss 0.8864 time 537s {'dev_sample': (0.4395, 0.1436)}\n"}
+,{"stream_name":"stdout","time":35420.165058264,"data":"seed 2 epoch 15 loss 0.8853 time 535s\n"}
+,{"stream_name":"stdout","time":35955.212316322,"data":"seed 2 epoch 16 loss 0.8842 time 535s\n"}
+,{"stream_name":"stdout","time":36493.995327527,"data":"seed 2 epoch 17 loss 0.8833 time 539s {'dev_sample': (0.4515, 0.1416)}\n"}
+,{"stream_name":"stdout","time":37029.423790014,"data":"seed 2 epoch 18 loss 0.8825 time 535s\n"}
+,{"stream_name":"stdout","time":37564.549994955,"data":"seed 2 epoch 19 loss 0.8819 time 535s\n"}
+,{"stream_name":"stdout","time":38102.220828528,"data":"seed 2 epoch 20 loss 0.8815 time 538s {'dev_sample': (0.4615, 0.1398)}\n"}
+,{"stream_name":"stdout","time":38636.686009714,"data":"seed 2 epoch 21 loss 0.8811 time 534s\n"}
+,{"stream_name":"stdout","time":39169.982326381,"data":"seed 2 epoch 22 loss 0.8809 time 533s\n"}
+,{"stream_name":"stdout","time":39706.40008908,"data":"seed 2 epoch 23 loss 0.8807 time 536s {'dev_sample': (0.4685, 0.1376)}\n"}
+,{"stream_name":"stdout","time":39723.822082733,"data":"seed 2 FINAL beam dev_sample: single (0.4815, 0.1351) ensemble-so-far (0.5015, 0.1299)\n"}
+,{"stream_name":"stdout","time":40037.714550879,"data":"wrote submission with 3 models\n"}
+,{"stream_name":"stdout","time":40037.714593288,"data":"seed 2 done in 13203s\n"}
+,{"stream_name":"stdout","time":40037.727414635,"data":"ALL DONE\n"}
+,{"stream_name":"stderr","time":40043.683574039,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":40043.683611574,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":40044.009974507,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":40044.010002679,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":40044.780926594,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":40046.241854711,"data":"[NbConvertApp] Writing 381531 bytes to __results__.html\n"}
+]

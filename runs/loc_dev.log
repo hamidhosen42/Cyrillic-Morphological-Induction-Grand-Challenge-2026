@@ -1,0 +1,104 @@
+device mps train rows 285743 {'dev_transfer': 13084, 'dev_complete': 6916, 'wug': 6528, 'unseen_adj': 7176}
+/Users/md.hamidhosen/.pyenv/versions/3.12.11/lib/python3.12/site-packages/torch/nn/modules/transformer.py:145: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = TransformerEncoder(
+params 4.9M steps/epoch 2232
+/Users/md.hamidhosen/.pyenv/versions/3.12.11/lib/python3.12/site-packages/torch/nn/modules/activation.py:1337: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+ep 0 step 200/2232 loss 3.7947 68s
+ep 0 step 400/2232 loss 3.1067 128s
+ep 0 step 600/2232 loss 2.7156 188s
+ep 0 step 800/2232 loss 2.4438 247s
+ep 0 step 1000/2232 loss 2.2344 309s
+ep 0 step 1200/2232 loss 2.0709 369s
+ep 0 step 1400/2232 loss 1.9407 428s
+ep 0 step 1600/2232 loss 1.8312 487s
+ep 0 step 1800/2232 loss 1.7378 547s
+ep 0 step 2000/2232 loss 1.6564 605s
+ep 0 step 2200/2232 loss 1.5842 662s
+=== epoch 0 loss 1.5737 time 692s  (oracle-class EM, paradigm-class EM): {'dev_transfer': (0.4433, 0.436), 'dev_complete': (0.4093, 0.3707), 'wug': (0.43, 0.208), 'unseen_adj': (0.3473, 0.154)}
+ep 1 step 2400/2232 loss 0.8319 53s
+ep 1 step 2600/2232 loss 0.8061 112s
+ep 1 step 2800/2232 loss 0.7864 169s
+ep 1 step 3000/2232 loss 0.7732 229s
+ep 1 step 3200/2232 loss 0.7584 287s
+ep 1 step 3400/2232 loss 0.7452 346s
+ep 1 step 3600/2232 loss 0.7317 403s
+ep 1 step 3800/2232 loss 0.7210 463s
+ep 1 step 4000/2232 loss 0.7102 521s
+ep 1 step 4200/2232 loss 0.7012 582s
+ep 1 step 4400/2232 loss 0.6933 644s
+=== epoch 1 loss 0.6905 time 676s  (oracle-class EM, paradigm-class EM): {'dev_transfer': (0.8127, 0.8027), 'dev_complete': (0.792, 0.704), 'wug': (0.8313, 0.384), 'unseen_adj': (0.7713, 0.3147)}
+ep 2 step 4600/2232 loss 0.5903 39s
+ep 2 step 4800/2232 loss 0.5874 99s
+ep 2 step 5000/2232 loss 0.5831 157s
+ep 2 step 5200/2232 loss 0.5821 222s
+ep 2 step 5400/2232 loss 0.5776 283s
+ep 2 step 5600/2232 loss 0.5750 344s
+ep 2 step 5800/2232 loss 0.5715 405s
+ep 2 step 6000/2232 loss 0.5693 467s
+ep 2 step 6200/2232 loss 0.5664 528s
+ep 2 step 6400/2232 loss 0.5639 589s
+ep 2 step 6600/2232 loss 0.5609 650s
+=== epoch 2 loss 0.5602 time 694s  (oracle-class EM, paradigm-class EM): {'dev_transfer': (0.9187, 0.9053), 'dev_complete': (0.896, 0.7993), 'wug': (0.9033, 0.416), 'unseen_adj': (0.892, 0.364)}
+ep 3 step 6800/2232 loss 0.5238 31s
+ep 3 step 7000/2232 loss 0.5261 93s
+ep 3 step 7200/2232 loss 0.5245 154s
+ep 3 step 7400/2232 loss 0.5241 216s
+ep 3 step 7600/2232 loss 0.5234 281s
+ep 3 step 7800/2232 loss 0.5224 341s
+ep 3 step 8000/2232 loss 0.5214 403s
+ep 3 step 8200/2232 loss 0.5203 464s
+ep 3 step 8400/2232 loss 0.5193 524s
+ep 3 step 8600/2232 loss 0.5179 586s
+ep 3 step 8800/2232 loss 0.5168 646s
+=== epoch 3 loss 0.5161 time 699s  (oracle-class EM, paradigm-class EM): {'dev_transfer': (0.9247, 0.9127), 'dev_complete': (0.9167, 0.8187), 'wug': (0.9393, 0.432), 'unseen_adj': (0.8793, 0.362)}
+ep 4 step 9000/2232 loss 0.5048 22s
+ep 4 step 9200/2232 loss 0.5020 83s
+ep 4 step 9400/2232 loss 0.5007 145s
+ep 4 step 9600/2232 loss 0.5005 205s
+ep 4 step 9800/2232 loss 0.4998 266s
+ep 4 step 10000/2232 loss 0.4992 326s
+ep 4 step 10200/2232 loss 0.4984 387s
+ep 4 step 10400/2232 loss 0.4977 448s
+ep 4 step 10600/2232 loss 0.4972 511s
+ep 4 step 10800/2232 loss 0.4963 573s
+ep 4 step 11000/2232 loss 0.4958 632s
+=== epoch 4 loss 0.4952 time 695s  (oracle-class EM, paradigm-class EM): {'dev_transfer': (0.9647, 0.9507), 'dev_complete': (0.9593, 0.8527), 'wug': (0.954, 0.4407), 'unseen_adj': (0.9447, 0.378)}
+ep 5 step 11200/2232 loss 0.4812 12s
+ep 5 step 11400/2232 loss 0.4853 73s
+ep 5 step 11600/2232 loss 0.4859 134s
+ep 5 step 11800/2232 loss 0.4861 195s
+ep 5 step 12000/2232 loss 0.4860 257s
+ep 5 step 12200/2232 loss 0.4858 318s
+ep 5 step 12400/2232 loss 0.4861 379s
+ep 5 step 12600/2232 loss 0.4859 439s
+ep 5 step 12800/2232 loss 0.4852 499s
+ep 5 step 13000/2232 loss 0.4852 558s
+ep 5 step 13200/2232 loss 0.4848 629s
+=== epoch 5 loss 0.4844 time 703s  (oracle-class EM, paradigm-class EM): {'dev_transfer': (0.962, 0.9487), 'dev_complete': (0.96, 0.8533), 'wug': (0.9513, 0.4367), 'unseen_adj': (0.944, 0.38)}
+ep 6 step 13400/2232 loss 0.4708 3s
+ep 6 step 13600/2232 loss 0.4795 63s
+ep 6 step 13800/2232 loss 0.4805 124s
+ep 6 step 14000/2232 loss 0.4806 184s
+ep 6 step 14200/2232 loss 0.4804 246s
+ep 6 step 14400/2232 loss 0.4804 307s
+ep 6 step 14600/2232 loss 0.4803 367s
+ep 6 step 14800/2232 loss 0.4802 429s
+ep 6 step 15000/2232 loss 0.4801 492s
+ep 6 step 15200/2232 loss 0.4800 554s
+ep 6 step 15400/2232 loss 0.4793 615s
+ep 6 step 15600/2232 loss 0.4788 675s
+=== epoch 6 loss 0.4787 time 697s  (oracle-class EM, paradigm-class EM): {'dev_transfer': (0.9687, 0.9547), 'dev_complete': (0.968, 0.8607), 'wug': (0.962, 0.4453), 'unseen_adj': (0.95, 0.3793)}
+ep 7 step 15800/2232 loss 0.4764 53s
+ep 7 step 16000/2232 loss 0.4753 115s
+ep 7 step 16200/2232 loss 0.4763 176s
+ep 7 step 16400/2232 loss 0.4762 237s
+ep 7 step 16600/2232 loss 0.4764 298s
+ep 7 step 16800/2232 loss 0.4764 358s
+ep 7 step 17000/2232 loss 0.4759 418s
+ep 7 step 17200/2232 loss 0.4763 479s
+ep 7 step 17400/2232 loss 0.4760 540s
+ep 7 step 17600/2232 loss 0.4761 600s
+ep 7 step 17800/2232 loss 0.4759 662s
+=== epoch 7 loss 0.4762 time 694s  (oracle-class EM, paradigm-class EM): {'dev_transfer': (0.9693, 0.9553), 'dev_complete': (0.9693, 0.862), 'wug': (0.9627, 0.446), 'unseen_adj': (0.952, 0.3807)}
+DONE

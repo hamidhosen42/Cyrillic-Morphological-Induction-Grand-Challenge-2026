@@ -1,0 +1,19 @@
+# secrets
+token.txt
+*.token
+.kaggle/
+
+# competition data (do not redistribute)
+data/
+kaggle/dataset/
+
+# model weights / candidate dumps / large binaries
+*.pt
+*.pkl
+*.zip
+runs/local/
+
+# python / os
+__pycache__/
+*.pyc
+.DS_Store

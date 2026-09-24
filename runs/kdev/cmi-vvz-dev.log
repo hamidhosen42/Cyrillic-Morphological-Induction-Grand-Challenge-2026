@@ -1,0 +1,28 @@
+[{"stream_name":"stdout","time":8.595626289,"data":"device cuda MODE dev EPOCHS 18 SEEDS [0]\n"}
+,{"stream_name":"stderr","time":8.603750403,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":8.603779464,"data":"  File \"/kaggle/src/script.py\", line 154, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":8.60398359,"data":"    tr = pd.read_csv(f'{DATA}/train.csv'); dv = pd.read_csv(f'{DATA}/dev.csv')\n"}
+,{"stream_name":"stderr","time":8.604084091,"data":"         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":8.604125023,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pandas/io/parsers/readers.py\", line 1026, in read_csv\n"}
+,{"stream_name":"stderr","time":8.606127782,"data":"    return _read(filepath_or_buffer, kwds)\n"}
+,{"stream_name":"stderr","time":8.606234154,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":8.606280156,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pandas/io/parsers/readers.py\", line 620, in _read\n"}
+,{"stream_name":"stderr","time":8.606612938,"data":"    parser = TextFileReader(filepath_or_buffer, **kwds)\n"}
+,{"stream_name":"stderr","time":8.606762978999999,"data":"             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":8.606856188,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pandas/io/parsers/readers.py\", line 1620, in __init__\n"}
+,{"stream_name":"stderr","time":8.607302734,"data":"    self._engine = self._make_engine(f, self.engine)\n"}
+,{"stream_name":"stderr","time":8.607438197,"data":"                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":8.607457453,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pandas/io/parsers/readers.py\", line 1880, in _make_engine\n"}
+,{"stream_name":"stderr","time":8.608019399,"data":"    self.handles = get_handle(\n"}
+,{"stream_name":"stderr","time":8.608047166,"data":"                   ^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":8.608103479,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pandas/io/common.py\", line 873, in get_handle\n"}
+,{"stream_name":"stderr","time":8.60990818,"data":"    handle = open(\n"}
+,{"stream_name":"stderr","time":8.609921349,"data":"             ^^^^^\n"}
+,{"stream_name":"stderr","time":8.609955536,"data":"FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/input/cyrillic-morphological-induction-grand-challenge/train.csv'\n"}
+,{"stream_name":"stderr","time":12.978349958,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":12.978376796,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":13.276521791,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":13.276550364,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":14.020646545,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":15.389268027,"data":"[NbConvertApp] Writing 381526 bytes to __results__.html\n"}
+]

@@ -1,0 +1,13 @@
+{
+  "id": "hosen42/cmi-vvz-full",
+  "title": "cmi-vvz-full",
+  "code_file": "train_kaggle.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "dataset_sources": ["hosen42/cmi-vvz-data"],
+  "competition_sources": ["cyrillic-morphological-induction-grand-challenge"],
+  "kernel_sources": []
+}

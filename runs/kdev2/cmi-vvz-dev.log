@@ -1,0 +1,76 @@
+[{"stream_name":"stdout","time":13.555831653,"data":"DATA /kaggle/input/cmi-vvz-data\n"}
+,{"stream_name":"stdout","time":13.817966965,"data":"device cuda MODE dev EPOCHS 12 SEEDS [0]\n"}
+,{"stream_name":"stdout","time":15.67512883,"data":"train rows 285796 {'dev_transfer': 13084, 'dev_complete': 6916, 'wug': 6528, 'unseen_adj': 7176}\n"}
+,{"stream_name":"stderr","time":18.494456823,"data":"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/transformer.py:144: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True\n"}
+,{"stream_name":"stderr","time":18.494515612,"data":"  self.encoder = TransformerEncoder(\n"}
+,{"stream_name":"stdout","time":19.027914342,"data":"params 25.2M\n"}
+,{"stream_name":"stderr","time":26.94648063,"data":"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.\n"}
+,{"stream_name":"stderr","time":26.946534796,"data":"  key_padding_mask = F._canonical_mask(\n"}
+,{"stream_name":"stdout","time":1127.342065146,"data":"seed 0 epoch 0 loss 2.0080 time 1102s\n"}
+,{"stream_name":"stdout","time":2245.267344232,"data":"seed 0 epoch 1 loss 1.2094 time 1118s\n"}
+,{"stream_name":"stdout","time":3397.530774919,"data":"seed 0 epoch 2 loss 1.0289 time 1152s {'dev_transfer': (0.359, 0.1746), 'dev_complete': (0.3357, 0.176), 'wug': (0.3557, 0.165), 'unseen_adj': (0.2757, 0.1658)}\n"}
+,{"stream_name":"stdout","time":4508.570287706,"data":"seed 0 epoch 3 loss 0.9604 time 1111s\n"}
+,{"stream_name":"stdout","time":5619.010720355,"data":"seed 0 epoch 4 loss 0.9314 time 1110s\n"}
+,{"stream_name":"stderr","time":5969.764402591,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":5969.764451367,"data":"  File \"/kaggle/src/script.py\", line 311, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":5969.764809523,"data":"    model = train_one(seed)\n"}
+,{"stream_name":"stderr","time":5969.764844668,"data":"            ^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.764859686,"data":"  File \"/kaggle/src/script.py\", line 275, in train_one\n"}
+,{"stream_name":"stderr","time":5969.765197939,"data":"    logits = model(src, tgt[:, :-1])\n"}
+,{"stream_name":"stderr","time":5969.765249107,"data":"             ^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.765259454,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1776, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":5969.772185268,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":5969.772204349,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.772378947,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n"}
+,{"stream_name":"stderr","time":5969.77275801,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":5969.772790178,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.77284309,"data":"  File \"/kaggle/src/script.py\", line 148, in forward\n"}
+,{"stream_name":"stderr","time":5969.773083349,"data":"    return self.decode(tgt_in, mem, mask)\n"}
+,{"stream_name":"stderr","time":5969.773122636,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.773156362,"data":"  File \"/kaggle/src/script.py\", line 144, in decode\n"}
+,{"stream_name":"stderr","time":5969.7733756,"data":"    h = self.tf.decoder(self.embed(tgt_in), mem, tgt_mask=causal, tgt_key_padding_mask=(tgt_in == 0), memory_key_padding_mask=mem_mask)\n"}
+,{"stream_name":"stderr","time":5969.773749141,"data":"        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.773782953,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1776, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":5969.774292651,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":5969.774354781,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.774407499,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n"}
+,{"stream_name":"stderr","time":5969.774908724,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":5969.775066803,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.775085448,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/transformer.py\", line 644, in forward\n"}
+,{"stream_name":"stderr","time":5969.77527404,"data":"    output = mod(\n"}
+,{"stream_name":"stderr","time":5969.775286677,"data":"             ^^^^\n"}
+,{"stream_name":"stderr","time":5969.775290797,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1776, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":5969.775739035,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":5969.775817586,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.7759122,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n"}
+,{"stream_name":"stderr","time":5969.776431188,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":5969.776523962,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.776536087,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/transformer.py\", line 1135, in forward\n"}
+,{"stream_name":"stderr","time":5969.776945696,"data":"    x = x + self._mha_block(\n"}
+,{"stream_name":"stderr","time":5969.776969062,"data":"            ^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.776974301,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/transformer.py\", line 1185, in _mha_block\n"}
+,{"stream_name":"stderr","time":5969.777396731,"data":"    x = self.multihead_attn(\n"}
+,{"stream_name":"stderr","time":5969.777408614,"data":"        ^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.777414765,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1776, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":5969.777845198,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":5969.778001869,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.778010472,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n"}
+,{"stream_name":"stderr","time":5969.778514838,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":5969.778634469,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.778641796,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py\", line 1491, in forward\n"}
+,{"stream_name":"stderr","time":5969.77904453,"data":"    attn_output, attn_output_weights = F.multi_head_attention_forward(\n"}
+,{"stream_name":"stderr","time":5969.779185692,"data":"                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.779353893,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/functional.py\", line 6435, in multi_head_attention_forward\n"}
+,{"stream_name":"stderr","time":5969.78055301,"data":"    q, k, v = _in_projection_packed(query, key, value, in_proj_weight, in_proj_bias)\n"}
+,{"stream_name":"stderr","time":5969.780759689,"data":"              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.780813935,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/functional.py\", line 5849, in _in_projection_packed\n"}
+,{"stream_name":"stderr","time":5969.781908223,"data":"    .contiguous()\n"}
+,{"stream_name":"stderr","time":5969.781927547,"data":"     ^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":5969.782037969,"data":"torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 150.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 78.81 MiB is free. Including non-PyTorch memory, this process has 14.48 GiB memory in use. Of the allocated memory 12.42 GiB is allocated by PyTorch, and 1.93 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stderr","time":5976.838171981,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":5976.838207236,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":5977.314709293,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":5977.314735552,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":5978.205479986,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":5979.921890495,"data":"[NbConvertApp] Writing 391338 bytes to __results__.html\n"}
+]
