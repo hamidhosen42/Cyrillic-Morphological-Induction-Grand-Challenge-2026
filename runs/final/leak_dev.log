@@ -1,0 +1,70 @@
+=== leak=0 leak_ctx=1
+CONFIG {"transfer": {"rep": "cur5", "lam": 2.0, "joint": true}, "complete": {"rep": "poe", "lam": 5.0, "joint": true, "lam5": 1.0}, "wug": {"rep": "3way", "lam": 5.0, "joint": true}, "unseen": {"rep": "cur5", "lam": 2.0, "joint": false}} mu 0.6 -> (np.float64(0.65527), {'transfer': (np.float64(0.9554), np.float64(0.0219)), 'complete': (np.float64(0.9515), np.float64(0.0199)), 'wug': (np.float64(0.4916), np.float64(0.1374)), 'unseen': (np.float64(0.3944), np.float64(0.1367))})
+    local beam cache: 0 decoded, 13084 reused
+   transfer: no-pool EM 0.9554 w0.5:0.9587
+    local beam cache: 0 decoded, 6023 reused
+   complete: no-pool EM 0.9515 w0.5:0.9519
+    local beam cache: 0 decoded, 6528 reused
+   wug: no-pool EM 0.4916 w0.5:0.4945
+    local beam cache: 0 decoded, 7176 reused
+   unseen: no-pool EM 0.3944 w0.5:0.3970
+POOLED w_loc=0.5 (np.float64(0.6574), {'transfer': (np.float64(0.9587), np.float64(0.0215)), 'complete': (np.float64(0.9519), np.float64(0.0199)), 'wug': (np.float64(0.4945), np.float64(0.1368)), 'unseen': (np.float64(0.397), np.float64(0.1364))})
+    local beam cache: 0 decoded, 13084 reused
+    local beam cache: 0 decoded, 6023 reused
+    local beam cache: 0 decoded, 6528 reused
+    local beam cache: 0 decoded, 7176 reused
+BEFORE FIXES (np.float64(0.6574), {'transfer': (np.float64(0.9587), np.float64(0.0215)), 'complete': (np.float64(0.9519), np.float64(0.0199)), 'wug': (np.float64(0.4945), np.float64(0.1368)), 'unseen': (np.float64(0.397), np.float64(0.1364))})
+AFTER FIXES BAC {'B': 94, 'A': 51, 'C': 28} (np.float64(0.65981), {'transfer': (np.float64(0.96), np.float64(0.0214)), 'complete': (np.float64(0.9547), np.float64(0.0197)), 'wug': (np.float64(0.4956), np.float64(0.1366)), 'unseen': (np.float64(0.4026), np.float64(0.1353))})
+   transfer: fixed 17 broke 0
+   complete: fixed 17 broke 0
+   wug: fixed 7 broke 0
+   unseen: fixed 40 broke 0
+=== leak=1 leak_ctx=0
+leak: 1101 unexplained noise copies -> 197 rows matched (ctx=0)
+CONFIG {"transfer": {"rep": "cur5", "lam": 2.0, "joint": true}, "complete": {"rep": "poe", "lam": 5.0, "joint": true, "lam5": 1.0}, "wug": {"rep": "3way", "lam": 5.0, "joint": true}, "unseen": {"rep": "cur5", "lam": 2.0, "joint": false}} mu 0.6 -> (np.float64(0.65527), {'transfer': (np.float64(0.9554), np.float64(0.0219)), 'complete': (np.float64(0.9515), np.float64(0.0199)), 'wug': (np.float64(0.4916), np.float64(0.1374)), 'unseen': (np.float64(0.3944), np.float64(0.1367))})
+    local beam cache: 0 decoded, 13084 reused
+   transfer: no-pool EM 0.9554 w0.5:0.9587
+    local beam cache: 0 decoded, 6023 reused
+   complete: no-pool EM 0.9515 w0.5:0.9519
+    local beam cache: 0 decoded, 6528 reused
+   wug: no-pool EM 0.4916 w0.5:0.4945
+    local beam cache: 0 decoded, 7176 reused
+   unseen: no-pool EM 0.3944 w0.5:0.3970
+POOLED w_loc=0.5 (np.float64(0.6574), {'transfer': (np.float64(0.9587), np.float64(0.0215)), 'complete': (np.float64(0.9519), np.float64(0.0199)), 'wug': (np.float64(0.4945), np.float64(0.1368)), 'unseen': (np.float64(0.397), np.float64(0.1364))})
+    local beam cache: 0 decoded, 13084 reused
+    local beam cache: 0 decoded, 6023 reused
+    local beam cache: 0 decoded, 6528 reused
+    local beam cache: 0 decoded, 7176 reused
+BEFORE FIXES (np.float64(0.6574), {'transfer': (np.float64(0.9587), np.float64(0.0215)), 'complete': (np.float64(0.9519), np.float64(0.0199)), 'wug': (np.float64(0.4945), np.float64(0.1368)), 'unseen': (np.float64(0.397), np.float64(0.1364))})
+AFTER FIXES BAC {'B': 94, 'A': 51, 'C': 28} (np.float64(0.65981), {'transfer': (np.float64(0.96), np.float64(0.0214)), 'complete': (np.float64(0.9547), np.float64(0.0197)), 'wug': (np.float64(0.4956), np.float64(0.1366)), 'unseen': (np.float64(0.4026), np.float64(0.1353))})
+AFTER LEAK OVERRIDE (np.float64(0.66314), {'transfer': (np.float64(0.9599), np.float64(0.0214)), 'complete': (np.float64(0.9547), np.float64(0.0197)), 'wug': (np.float64(0.5015), np.float64(0.135)), 'unseen': (np.float64(0.4075), np.float64(0.1343))})
+   leak override changed {'transfer': 1, 'wug': 41, 'unseen': 41} fixed {'transfer': 0, 'wug': 39, 'unseen': 38} broke {'transfer': 1, 'wug': 0, 'unseen': 3}
+   transfer: fixed 17 broke 1
+   complete: fixed 17 broke 0
+   wug: fixed 46 broke 0
+   unseen: fixed 78 broke 3
+=== leak=1 leak_ctx=1
+leak: 1101 unexplained noise copies -> 197 rows matched (ctx=1)
+CONFIG {"transfer": {"rep": "cur5", "lam": 2.0, "joint": true}, "complete": {"rep": "poe", "lam": 5.0, "joint": true, "lam5": 1.0}, "wug": {"rep": "3way", "lam": 5.0, "joint": true}, "unseen": {"rep": "cur5", "lam": 2.0, "joint": false}} mu 0.6 -> (np.float64(0.66493), {'transfer': (np.float64(0.9554), np.float64(0.0219)), 'complete': (np.float64(0.9515), np.float64(0.0199)), 'wug': (np.float64(0.5064), np.float64(0.1334)), 'unseen': (np.float64(0.4122), np.float64(0.1328))})
+    local beam cache: 0 decoded, 13084 reused
+   transfer: no-pool EM 0.9554 w0.5:0.9587
+    local beam cache: 0 decoded, 6023 reused
+   complete: no-pool EM 0.9515 w0.5:0.9519
+    local beam cache: 318 decoded, 6210 reused
+   wug: no-pool EM 0.5064 w0.5:0.5093
+    local beam cache: 601 decoded, 6575 reused
+   unseen: no-pool EM 0.4122 w0.5:0.4157
+POOLED w_loc=0.5 (np.float64(0.66725), {'transfer': (np.float64(0.9587), np.float64(0.0215)), 'complete': (np.float64(0.9519), np.float64(0.0199)), 'wug': (np.float64(0.5093), np.float64(0.1327)), 'unseen': (np.float64(0.4157), np.float64(0.1324))})
+    local beam cache: 0 decoded, 13084 reused
+    local beam cache: 0 decoded, 6023 reused
+    local beam cache: 0 decoded, 6528 reused
+    local beam cache: 0 decoded, 7176 reused
+BEFORE FIXES (np.float64(0.66725), {'transfer': (np.float64(0.9587), np.float64(0.0215)), 'complete': (np.float64(0.9519), np.float64(0.0199)), 'wug': (np.float64(0.5093), np.float64(0.1327)), 'unseen': (np.float64(0.4157), np.float64(0.1324))})
+AFTER FIXES BAC {'B': 94, 'A': 51, 'C': 28} (np.float64(0.66981), {'transfer': (np.float64(0.96), np.float64(0.0214)), 'complete': (np.float64(0.9547), np.float64(0.0197)), 'wug': (np.float64(0.5104), np.float64(0.1325)), 'unseen': (np.float64(0.422), np.float64(0.1313))})
+AFTER LEAK OVERRIDE (np.float64(0.6731), {'transfer': (np.float64(0.9599), np.float64(0.0214)), 'complete': (np.float64(0.9547), np.float64(0.0197)), 'wug': (np.float64(0.5165), np.float64(0.131)), 'unseen': (np.float64(0.4264), np.float64(0.1304))})
+   leak override changed {'transfer': 1, 'wug': 42, 'unseen': 38} fixed {'transfer': 0, 'wug': 40, 'unseen': 35} broke {'transfer': 1, 'wug': 0, 'unseen': 3}
+   transfer: fixed 17 broke 1
+   complete: fixed 17 broke 0
+   wug: fixed 47 broke 0
+   unseen: fixed 80 broke 3
+ALLDONE

@@ -1,0 +1,29 @@
+ctx_clean: 324800 -> 319132 context rows
+leak: 891 unexplained noise copies -> 522 rows matched (ctx=1)
+priors ready 8s
+/Users/md.hamidhosen/.pyenv/versions/3.12.11/lib/python3.12/site-packages/torch/nn/modules/transformer.py:145: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = TransformerEncoder(
+loaded 3 local models on mps
+candidates ready 12s
+    local beam cache: 0 decoded, 18000 reused
+  [transfer] local beams 18000 rows x 3 models in 0s
+  transfer: pooling changed 12 rows
+  transfer: 18000 rows decided
+    local beam cache: 0 decoded, 15000 reused
+  [complete] local beams 15000 rows x 3 models in 0s
+  complete: pooling changed 22 rows
+  complete: 15000 rows decided
+/Users/md.hamidhosen/.pyenv/versions/3.12.11/lib/python3.12/site-packages/torch/nn/modules/activation.py:1337: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+    local beam cache: 279 decoded, 17981 reused
+  [wug] local beams 18260 rows x 3 models in 6s
+  wug: pooling changed 77 rows
+  wug: 18260 rows decided
+    local beam cache: 226 decoded, 8514 reused
+  [unseen] local beams 8740 rows x 3 models in 6s
+  unseen: pooling changed 148 rows
+  unseen: 8740 rows decided
+fixes applied: {'B': 70, 'A': 3, 'C': 3} {'transfer': 0, 'complete': 2, 'wug': 10, 'unseen': 64}
+leak override changed {'transfer': 1, 'complete': 2, 'wug': 117, 'unseen': 48}
+wrote runs/final/sub_leak_ctx.csv 60000 50s
+FULLDONE

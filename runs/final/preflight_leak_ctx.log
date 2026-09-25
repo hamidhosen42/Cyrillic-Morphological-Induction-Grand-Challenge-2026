@@ -1,0 +1,13 @@
+OK   columns ['id', 'form_vvz']
+OK   rows 60000
+OK   ids unique and in sample order
+OK   no empty/NaN predictions
+OK   no leading/trailing whitespace
+OK   unicode normalization consistent
+OK   exactly one accent: 1.0000
+changed vs reference: 688 (1.15%); stress-only changes: 372
+   transfer  n= 18000 changed      1 (0.01%)  stress-only 0
+   complete  n= 15000 changed      2 (0.01%)  stress-only 0
+   wug       n= 18260 changed    398 (2.18%)  stress-only 226
+   unseen    n=  8740 changed    287 (3.28%)  stress-only 146
+PREFLIGHT PASSED

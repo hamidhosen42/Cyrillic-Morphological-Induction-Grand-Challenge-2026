@@ -57,8 +57,6 @@ p.add_argument('--rescored', default='', help='comma list of rescoring pkls (key
 p.add_argument('--resc_mix', type=float, default=0.0, help='weight of the original beam tally mixed into the rescored tally')
 p.add_argument('--resc_temp', type=float, default=1.0, help='temperature on rescored log-probs')
 p.add_argument('--clf_w', default='0', help='comma list of weights for the classifier expert (dev: all evaluated)')
-p.add_argument('--leak', type=int, default=0, help='1: use the publicly disclosed noise-copy leak (forum topic 743193): overrides + prior observations')
-p.add_argument('--leak_ctx', type=int, default=1, help='with --leak: also add the matched forms to the paradigm-prior observations')
 args = p.parse_args()
 cfg = BEST_CFG if args.cfg == 'best' else BASE_CFG if args.cfg == 'base' else json.loads(args.cfg)
 t0 = time.time()
@@ -109,36 +107,6 @@ for l, f, d, fm in zip(known_ctx.lemma_ru, known_ctx.feats, known_ctx.dialect, k
 stem_ref_map = collections.defaultdict(list)
 for l, f, d, fm in zip(known.lemma_ru, known.feats, known.dialect, known.form_vvz):
     stem_ref_map[l].append((f, d, fm))
-
-# ---------------------------------------------------------------- noise-copy leak (disclosed publicly: forum topic 743193)
-# Substitution-noise rows in train/dev carry the exact form (stress included) of another row with the same feats and
-# dialect. Copies that match no released row are matched to the unique unreleased row (same feats, dialect) whose
-# candidate pool contains the same unaccented string.
-LEAK = {}
-if args.leak:
-    _fl = pd.read_csv(os.path.join(ROOT, 'runs/exp/noise/sub_flags_traindev.csv'))
-    _bad = set(zip(_fl.lemma_ru[_fl.sub2], _fl.feats[_fl.sub2], _fl.dialect[_fl.sub2], _fl.form_vvz[_fl.sub2]))
-    _ksub = np.array([(l, f, d, fm) in _bad for l, f, d, fm in zip(known.lemma_ru, known.feats, known.dialect, known.form_vvz)])
-    _legit = set(known.form_vvz.values[~_ksub])
-    _U = known[_ksub & ~known.form_vvz.isin(_legit).values]
-    _pfn = os.path.join(ROOT, f'runs/final/pool_{args.mode}.pkl')
-    _xpool = pickle.load(open(_pfn, 'rb')) if os.path.exists(_pfn) else {}
-    _idx = collections.defaultdict(set)
-    for _s in SEGS:
-        _df, _cpm = seg_frames[_s]
-        for _i, _r in enumerate(_df.itertuples()):
-            _key = (_r.lemma_ru, _r.feats, _r.dialect)
-            _cs = {c[0] for m_ in _cpm for c in m_[_i]} | set(_xpool.get(_key, []))
-            for c in _cs:
-                if c: _idx[(_r.feats, _r.dialect, c.replace(ACC, ''))].add(_key)
-    _cand = collections.defaultdict(set)
-    for _r in _U.itertuples():
-        _h = _idx.get((_r.feats, _r.dialect, _r.form_vvz.replace(ACC, '')), set())
-        if len(_h) == 1: _cand[next(iter(_h))].add(_r.form_vvz)
-    LEAK = {k: next(iter(v)) for k, v in _cand.items() if len(v) == 1}
-    if args.leak_ctx:
-        for (l, f, d), fm in LEAK.items(): known_map[l].append((f, d, fm))
-    print(f'leak: {len(_U)} unexplained noise copies -> {len(LEAK)} rows matched (ctx={args.leak_ctx})', flush=True)
 
 _CANON = str.maketrans({'о': 'а', 'е': 'е', 'и': 'е', 'ѣ': 'е', 'э': 'е', 'ё': 'е', 'ы': 'е', 'ь': None, 'ъ': None, ACC: None})
 
@@ -581,16 +549,6 @@ if args.mode == 'dev':
         st = apply_fixes(segrows, args.fixes, w0)
         after = {s: [x['pred'] for x in segrows[s]] for s in SEGS}
         print('AFTER FIXES', args.fixes, st, weighted_score(after, golds))
-        if LEAK:
-            nfx = collections.Counter(); nbr = collections.Counter(); nov = collections.Counter()
-            for s_ in SEGS:
-                for x, g in zip(segrows[s_], golds[s_]):
-                    k = (x['row'].lemma_ru, x['row'].feats, x['row'].dialect)
-                    if k in LEAK and LEAK[k] != x['pred']:
-                        nov[s_] += 1; nfx[s_] += (LEAK[k] == g); nbr[s_] += (x['pred'] == g); x['pred'] = LEAK[k]
-            after = {s_: [x['pred'] for x in segrows[s_]] for s_ in SEGS}
-            print('AFTER LEAK OVERRIDE', weighted_score(after, golds))
-            print('   leak override changed', dict(nov), 'fixed', dict(nfx), 'broke', dict(nbr))
         if args.dump:
             pickle.dump({s: [dict(lemma=x['row'].lemma_ru, pos=x['row'].pos, feats=x['row'].feats, dialect=x['row'].dialect,
                                   pred=x['pred'], gold=g, pool=x['pool']) for x, g in zip(segrows[s], golds[s])] for s in SEGS},
@@ -629,13 +587,6 @@ else:
         before = {s: [x['pred'] for x in segrows[s]] for s in SEGS}
         st = apply_fixes(segrows, args.fixes, w0)
         print('fixes applied:', st, {s: sum(a != x['pred'] for a, x in zip(before[s], segrows[s])) for s in SEGS}, flush=True)
-    if LEAK:
-        nov = collections.Counter()
-        for s in SEGS:
-            for x in segrows[s]:
-                k = (x['row'].lemma_ru, x['row'].feats, x['row'].dialect)
-                if k in LEAK and LEAK[k] != x['pred']: x['pred'] = LEAK[k]; nov[s] += 1
-        print('leak override changed', dict(nov), flush=True)
     for s in SEGS:
         pred[seg_frames[s][0].index.values] = [x['pred'] for x in segrows[s]]
     assert all(isinstance(x, str) and x for x in pred)
