@@ -102,3 +102,13 @@ ep 7 step 17600/2499 loss 0.4659 104s
 ep 7 step 17800/2499 loss 0.4672 300s
 ep 7 step 18000/2499 loss 0.4656 571s
 ep 7 step 18200/2499 loss 0.4662 898s
+ep 7 step 18400/2499 loss 0.4663 1106s
+ep 7 step 18600/2499 loss 0.4664 1274s
+ep 7 step 18800/2499 loss 0.4664 1440s
+ep 7 step 19000/2499 loss 0.4663 1641s
+ep 7 step 19200/2499 loss 0.4663 1868s
+ep 7 step 19400/2499 loss 0.4661 2071s
+ep 7 step 19600/2499 loss 0.4659 2305s
+ep 7 step 19800/2499 loss 0.4659 2473s
+=== epoch 7 loss 0.4656 time 2639s  (oracle-class EM, paradigm-class EM): {'dev_sample': (0.9767, 0.9527)}
+DONE
