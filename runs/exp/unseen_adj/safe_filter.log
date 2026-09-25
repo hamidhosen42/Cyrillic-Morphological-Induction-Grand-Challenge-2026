@@ -1,0 +1,21 @@
+cells with rule: 120 of 138  k dist: Counter({3: 46, 1: 39, 2: 26, 4: 9})
+example rules: {('N', 'N;ACC;PL', 'SEV'): (1, {'ы', 'а', 'н', 'и'}), ('N', 'N;DAT;PL', 'SEV'): (3, {'омъ', 'амъ', 'ачъ', 'айъ', 'ьмъ'}), ('N', 'N;DAT;SG', 'SEV'): (1, {'у', 'ѣ', 'и'}), ('N', 'N;GEN;SG', 'SEV'): (1, {'ы', 'а', 'и'}), ('N', 'N;INS;PL', 'SEV'): (1, {'м', 'ы', 'и'}), ('N', 'N;INS;SG', 'SEV'): (2, {'аю', 'ом', 'ьѭ', 'мь', 'ою'}), ('N', 'N;LOC;PL', 'SEV'): (3, {'ѣуъ', 'ьхъ', 'жхъ', 'ѣхъ', 'ахъ'}), ('N', 'N;LOC;SG', 'SEV'): (1, {'ц', 'ѣ', 'и'}), ('N', 'N;NOM;PL', 'SEV'): (1, {'ы', 'а', 'н', 'и'})}
+transfer: gold false-rejection 0.0008
+complete: gold false-rejection 0.0003
+wug: gold false-rejection 0.0002
+unseen: gold false-rejection 0.0003
+base         transfer:0.9503 complete:0.9357 wug:0.4675 unseen:0.3788  score 0.63898
+safe_filter  transfer:0.9534 complete:0.9394 wug:0.4681 unseen:0.3845  score 0.64164
+holdout changed rows {'transfer': 48, 'complete': 26, 'wug': 11, 'unseen': 160} fixed {'transfer': 41, 'complete': 22, 'wug': 4, 'unseen': 57} broken {'transfer': 1, 'complete': 0, 'wug': 0, 'unseen': 16}
+TEST top-candidate invalid count by seg: {'complete': 0, 'transfer': 0, 'unseen': 15, 'wug': 2}  rate: {'complete': 0.0, 'transfer': 0.0, 'unseen': 0.0017, 'wug': 0.0001}
+TEST invalid rows with a valid cand in beam: {'unseen': 15, 'wug': 2}
+seg     feats           
+unseen  ADJ;INS;SG;LONG     4
+        ADJ;INS;PL;LONG     3
+        ADJ;INS;SG;SHORT    2
+        ADJ;NOM;PL;SHORT    2
+wug     V;PRS;2;PL          2
+unseen  ADJ;ACC;SG;LONG     1
+        ADJ;GEN;SG;LONG     1
+        ADJ;NOM;PL;LONG     1
+        ADJ;NOM;SG;LONG     1

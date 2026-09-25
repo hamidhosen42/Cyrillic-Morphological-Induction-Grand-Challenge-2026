@@ -1,0 +1,18 @@
+np seeds 0.. t=1s hits=0
+np seeds 10000.. t=16s hits=0
+np seeds 20000.. t=29s hits=0
+np seeds 30000.. t=45s hits=0
+np seeds 40000.. t=59s hits=0
+np seeds 50000.. t=72s hits=0
+np seeds 60000.. t=85s hits=0
+np seeds 70000.. t=96s hits=0
+np seeds 80000.. t=107s hits=0
+np seeds 90000.. t=120s hits=0
+yat most negative z:
+     kind fam   seed  K_or_s  pat_or_o          ord  purity         z
+2592  yat  np  74434       2         1    alpha_ADJ      -1 -5.404022
+1612  yat  np  46628       2         1  rank_global      -1 -5.400264
+709   yat  np  20305       4         3       rank_N      -1 -5.363511
+3422  yat  np  97758       7         6      alpha_V      -1 -5.211244
+2851  yat  np  81992       6         1     rank_rev      -1 -5.207073
+n logged hits 0 time 131 s

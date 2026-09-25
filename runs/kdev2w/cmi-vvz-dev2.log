@@ -1,0 +1,31 @@
+[{"stream_name":"stdout","time":6.81395156,"data":"DATA /kaggle/input/datasets/hosen42/cmi-vvz-data\n"}
+,{"stream_name":"stdout","time":7.077771025,"data":"device cuda MODE dev EPOCHS 10 SEEDS [0]\n"}
+,{"stream_name":"stdout","time":9.216822529,"data":"train rows 285796 {'dev_transfer': 13084, 'dev_complete': 6916, 'wug': 6528, 'unseen_adj': 7176}\n"}
+,{"stream_name":"stderr","time":11.902567695,"data":"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/transformer.py:144: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True\n"}
+,{"stream_name":"stderr","time":11.902608994,"data":"  self.encoder = TransformerEncoder(\n"}
+,{"stream_name":"stdout","time":12.408752796,"data":"params 25.2M\n"}
+,{"stream_name":"stderr","time":18.799300976,"data":"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.\n"}
+,{"stream_name":"stderr","time":18.799341746,"data":"  key_padding_mask = F._canonical_mask(\n"}
+,{"stream_name":"stdout","time":896.703082309,"data":"seed 0 epoch 0 loss 1.8561 time 879s\n"}
+,{"stream_name":"stdout","time":1778.936231165,"data":"seed 0 epoch 1 loss 1.1438 time 882s\n"}
+,{"stream_name":"stdout","time":2687.101235897,"data":"seed 0 epoch 2 loss 0.9971 time 908s {'dev_transfer': (0.3663, 0.169), 'dev_complete': (0.3423, 0.1685), 'wug': (0.346, 0.1613), 'unseen_adj': (0.2663, 0.1621)}\n"}
+,{"stream_name":"stdout","time":3566.400885903,"data":"seed 0 epoch 3 loss 0.9424 time 879s\n"}
+,{"stream_name":"stdout","time":4443.52333728,"data":"seed 0 epoch 4 loss 0.9204 time 877s\n"}
+,{"stream_name":"stdout","time":5352.858734307,"data":"seed 0 epoch 5 loss 0.9084 time 909s {'dev_transfer': (0.4223, 0.1516), 'dev_complete': (0.3993, 0.1515), 'wug': (0.3867, 0.1519), 'unseen_adj': (0.3453, 0.1408)}\n"}
+,{"stream_name":"stdout","time":6231.444546864,"data":"seed 0 epoch 6 loss 0.9008 time 879s\n"}
+,{"stream_name":"stdout","time":7109.3123182,"data":"seed 0 epoch 7 loss 0.8960 time 878s\n"}
+,{"stream_name":"stdout","time":8016.709536468,"data":"seed 0 epoch 8 loss 0.8932 time 907s {'dev_transfer': (0.4347, 0.1494), 'dev_complete': (0.3957, 0.1518), 'wug': (0.404, 0.1465), 'unseen_adj': (0.3513, 0.1384)}\n"}
+,{"stream_name":"stdout","time":8924.550794837,"data":"seed 0 epoch 9 loss 0.8920 time 908s {'dev_transfer': (0.4373, 0.1492), 'dev_complete': (0.3957, 0.1518), 'wug': (0.407, 0.1461), 'unseen_adj': (0.351, 0.1386)}\n"}
+,{"stream_name":"stdout","time":9233.645062797,"data":"seed 0 FINAL beam dev_transfer: single (0.4454, 0.1462) ensemble-so-far (0.4454, 0.1462)\n"}
+,{"stream_name":"stdout","time":9392.631594573,"data":"seed 0 FINAL beam dev_complete: single (0.4059, 0.1501) ensemble-so-far (0.4059, 0.1501)\n"}
+,{"stream_name":"stdout","time":9436.221358772,"data":"seed 0 FINAL beam wug: single (0.4262, 0.1538) ensemble-so-far (0.4262, 0.1538)\n"}
+,{"stream_name":"stdout","time":9490.206192252,"data":"seed 0 FINAL beam unseen_adj: single (0.3665, 0.1438) ensemble-so-far (0.3665, 0.1438)\n"}
+,{"stream_name":"stdout","time":9490.206227783,"data":"seed 0 done in 9479s\n"}
+,{"stream_name":"stdout","time":9490.373181966,"data":"ALL DONE\n"}
+,{"stream_name":"stderr","time":9495.120696427,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":9495.120727896,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":9495.391418546,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":9495.391450059,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":9496.08854431,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":9497.366508089,"data":"[NbConvertApp] Writing 392231 bytes to __results__.html\n"}
+]

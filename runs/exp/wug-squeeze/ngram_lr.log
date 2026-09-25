@@ -1,0 +1,4 @@
+LR keys only                     C=0.3: wug prior-acc 0.4764 comb-acc 0.4861 | train-CV(2 folds) 0.4662 n_cv=44730
+LR keys only                     C=1.0: wug prior-acc 0.4743 comb-acc 0.4859 | train-CV(2 folds) 0.4643 n_cv=44730
+LR keys + lemma ngrams           C=0.3: wug prior-acc 0.4608 comb-acc 0.4727 | train-CV(2 folds) 0.4516 n_cv=44730
+LR keys + lemma ngrams           C=1.0: wug prior-acc 0.4559 comb-acc 0.4631 | train-CV(2 folds) 0.4449 n_cv=44730

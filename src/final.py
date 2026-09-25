@@ -52,6 +52,11 @@ p.add_argument('--beam', type=int, default=4)
 p.add_argument('--device', default='mps')
 p.add_argument('--fixes', default='', help="post-fixes to apply in order, subset of 'BAC'")
 p.add_argument('--dump', default='', help='dev: pickle per-row predictions/golds/pools after fixes')
+p.add_argument('--clf', default='', help='comma list of stress-classifier run dirs (wug expert)')
+p.add_argument('--rescored', default='', help='comma list of rescoring pkls (key -> {form: logp}); replaces beam tallies')
+p.add_argument('--resc_mix', type=float, default=0.0, help='weight of the original beam tally mixed into the rescored tally')
+p.add_argument('--resc_temp', type=float, default=1.0, help='temperature on rescored log-probs')
+p.add_argument('--clf_w', default='0', help='comma list of weights for the classifier expert (dev: all evaluated)')
 args = p.parse_args()
 cfg = BEST_CFG if args.cfg == 'best' else BASE_CFG if args.cfg == 'base' else json.loads(args.cfg)
 t0 = time.time()
@@ -77,6 +82,18 @@ else:
 if args.limit:
     seg_frames = {s: (d.head(args.limit), [m[:args.limit] for m in c]) for s, (d, c) in seg_frames.items()}
 
+CLF = {}
+if args.clf:
+    _src_df = val['wug'] if args.mode == 'dev' else te
+    for cd in args.clf.split(','):
+        fn = os.path.join(ROOT, cd, 'holdout_wug_probs.pkl' if args.mode == 'dev' else 'test_wug_probs.pkl')
+        dd = pickle.load(open(fn, 'rb'))
+        for ix, pr in zip(dd['index'], dd['P']):
+            r = _src_df.loc[ix]
+            k = (r.lemma_ru, r.feats, r.dialect)
+            CLF.setdefault(k, []).append(np.asarray(pr))
+    CLF = {k: np.exp(np.mean([np.log(p_ + 1e-6) for p_ in v], axis=0)) for k, v in CLF.items()}
+    print(f'classifier expert: {len(CLF)} rows from {args.clf}', flush=True)
 known_ctx = known
 if args.ctx_clean:
     sys.path.insert(0, os.path.join(ROOT, 'src', 'exp', 'noise'))
@@ -170,6 +187,10 @@ def prior(rep, pos, feats, lemma, excl_dialects):
     return sum(pm.class_dist(pos, feats, [(f, REPS[rep].mask(fm, lemma, pos, d)) for f, d, fm in obs]) for pm in PMS[rep]) / len(PMS[rep])
 
 
+RESC = [pickle.load(open(os.path.join(ROOT, f_), 'rb')) for f_ in args.rescored.split(',') if f_]
+if RESC: print(f'rescored tallies from {len(RESC)} models', flush=True)
+
+
 def prep(df, cpm):
     rows = list(df.itertuples())
     tallies = []
@@ -178,6 +199,20 @@ def prep(df, cpm):
         for mdl in cpm:
             lst = mdl[i]; lp = np.array([c[1] for c in lst]); pr = np.exp(lp - lp.max()); pr /= pr.sum()
             for (s, _), q in zip(lst, pr): t[s] += q / len(cpm)
+        if RESC:
+            key = (rows[i].lemma_ru, rows[i].feats, rows[i].dialect)
+            new = collections.defaultdict(float); nm = 0
+            for sc in RESC:
+                d = sc.get(key)
+                if not d: continue
+                ks = list(d); lp = np.array([d[k_] for k_ in ks]) / args.resc_temp
+                pr = np.exp(lp - lp.max()); pr /= pr.sum(); nm += 1
+                for k_, q in zip(ks, pr): new[k_] += q
+            if nm:
+                new = {k_: v / nm for k_, v in new.items()}
+                if args.resc_mix > 0:
+                    for k_ in set(new) | set(t): new[k_] = (1 - args.resc_mix) * new.get(k_, 0.0) + args.resc_mix * t.get(k_, 0.0)
+                t = new
         tallies.append(dict(t))
     ll = [{s: loglen(r.pos, r.feats, r.dialect, r.lemma_ru, s) for s in t} for r, t in zip(rows, tallies)]
     return rows, tallies, ll
@@ -218,7 +253,7 @@ def decide_poe(rows, tallies, ll, lam, joint, mu, lam5):
     return out
 
 
-def decide(rows, tallies, ll, rep, lam, joint, mu, cons=False, lam5=0.0):
+def decide(rows, tallies, ll, rep, lam, joint, mu, cons=False, lam5=0.0, clfw=0.0):
     if rep == 'poe':
         return decide_poe(rows, tallies, ll, lam, joint, mu, lam5)
     n = ncls(rep)
@@ -241,6 +276,10 @@ def decide(rows, tallies, ll, rep, lam, joint, mu, cons=False, lam5=0.0):
         if key not in _prior_cache: _prior_cache[key] = prior(rep, r0.pos, r0.feats, r0.lemma_ru, set(dls))
         pr = _prior_cache[key]
         sc = sum(np.log(mass[i]) for i in idx) + lam * np.log(pr + 1e-9)
+        if clfw and rep == '3way':
+            for i in idx:
+                cp = CLF.get((rows[i].lemma_ru, rows[i].feats, rows[i].dialect))
+                if cp is not None: sc = sc + clfw * np.log(cp[:n] + 1e-6)
         c = int(sc.argmax())
         for i in idx:
             cands = [(s, np.log(q + 1e-12) + mu * ll[i][s]) for s, q in tallies[i].items() if (masks[i][s] >> c) & 1]
@@ -480,6 +519,12 @@ if args.mode == 'dev':
     res = run(cfg, args.mu)
     print('CONFIG', json.dumps(cfg), 'mu', args.mu, '->', res)
     print('DELTA weighted score: %+.5f' % (res[0] - base[0]))
+    if CLF:
+        for cw in [float(x) for x in args.clf_w.split(',')]:
+            preds = {s: decide(*prepped[s], cfg[s]['rep'], cfg[s]['lam'], cfg[s]['joint'], args.mu, lam5=cfg[s].get('lam5', 0.0),
+                               clfw=(cw if s == 'wug' else 0.0)) for s in SEGS}
+            r_ = weighted_score(preds, golds)
+            print(f'CLF w={cw}: wug EM {r_[1]["wug"][0]:.4f}  score {r_[0]:.5f}', flush=True)
     if LOCAL:
         wl = [float(x) for x in args.w_loc.split(',')]
         pp = {w: {} for w in wl}
@@ -531,7 +576,7 @@ else:
     segrows = {}
     for s in SEGS:
         df = seg_frames[s][0]
-        pr_ = decide(*prepped[s], cfg[s]['rep'], cfg[s]['lam'], cfg[s]['joint'], args.mu, cons=(s in set(x for x in args.stem_cons.split(',') if x)), lam5=cfg[s].get('lam5', 0.0))
+        pr_ = decide(*prepped[s], cfg[s]['rep'], cfg[s]['lam'], cfg[s]['joint'], args.mu, cons=(s in set(x for x in args.stem_cons.split(',') if x)), lam5=cfg[s].get('lam5', 0.0), clfw=(float(args.clf_w.split(',')[0]) if s == 'wug' else 0.0))
         if LOCAL:
             pr2 = pooled(s, *prepped[s], cfg[s]['rep'], pr_, args.mu, [w0])[w0]
             print(f'  {s}: pooling changed {sum(a != b for a, b in zip(pr_, pr2))} rows', flush=True)

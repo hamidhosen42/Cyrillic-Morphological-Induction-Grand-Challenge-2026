@@ -1,0 +1,7 @@
+dropping 11705 of 300000 train rows (noisylemma); fit rows 274606 of 285796
+fit 3 pms in 75s
+transfer  n=13084 prior-cls 0.9614 nn-cls 0.4570 comb-cls 0.9610 EM 0.9410
+complete  n= 6023 prior-cls 0.9372 nn-cls 0.4230 comb-cls 0.9467 EM 0.9303
+wug       n= 6528 prior-cls 0.4674 nn-cls 0.4427 comb-cls 0.4838 EM 0.4672 | clean-gold n=6469 prior-cls 0.4687 comb-cls 0.4849 EM 0.4715
+unseen    n= 7176 prior-cls 0.4037 nn-cls 0.3921 comb-cls 0.4094 EM 0.3776 | clean-gold n=7112 prior-cls 0.4023 comb-cls 0.4083 EM 0.3795
+WEIGHTED (np.float64(0.63637), {'transfer': (np.float64(0.941), np.float64(0.0254)), 'complete': (np.float64(0.9303), np.float64(0.0255)), 'wug': (np.float64(0.4672), np.float64(0.1434)), 'unseen': (np.float64(0.3776), np.float64(0.1404))})

@@ -1,0 +1,12 @@
+HOLDOUT base       expected class acc (train stats) 0.4022  by nv: nv2:0.686 nv3:0.390 nv4:0.386 nv5:0.379 nv6:0.372 | REAL class acc 0.4104 by nv: nv2:0.702 nv3:0.390 nv4:0.397 nv5:0.401 nv6:0.398
+HOLDOUT nvprior    expected class acc (train stats) 0.4069  by nv: nv2:0.689 nv3:0.392 nv4:0.393 nv5:0.387 nv6:0.385 | REAL class acc 0.4139 by nv: nv2:0.718 nv3:0.397 nv4:0.394 nv5:0.421 nv6:0.371
+HOLDOUT prior_only expected class acc (train stats) 0.4148  by nv: nv2:0.689 nv3:0.398 nv4:0.403 nv5:0.401 nv6:0.397 | REAL class acc 0.4150 by nv: nv2:0.718 nv3:0.402 nv4:0.405 nv5:0.388 nv6:0.354
+HOLDOUT rows where nvprior changes class: 1101 / 7176; nv2 share of rows 0.052
+HOLDOUT NOM;SG;SHORT nv2 rows n=18: class0 share base 1.000 nvprior 1.000 (train truth 0.99)
+HOLDOUT LONG nv2 rows n=189: class0 share base 0.968 nvprior 1.000 (train truth ~0.72-0.77)
+TEST base       expected class acc (train stats) 0.4599  by nv: nv2:0.690 nv3:0.394 nv4:0.391 nv5:0.383 nv6:0.379
+TEST nvprior    expected class acc (train stats) 0.4659  by nv: nv2:0.690 nv3:0.397 nv4:0.398 nv5:0.394 nv6:0.390
+TEST prior_only expected class acc (train stats) 0.4692  by nv: nv2:0.690 nv3:0.400 nv4:0.402 nv5:0.398 nv6:0.396
+TEST rows where nvprior changes class: 1673 / 8740; nv2 share of rows 0.241
+TEST NOM;SG;SHORT nv2 rows n=84: class0 share base 1.000 nvprior 1.000 (train truth 0.99)
+TEST LONG nv2 rows n=1014: class0 share base 1.000 nvprior 1.000 (train truth ~0.72-0.77)

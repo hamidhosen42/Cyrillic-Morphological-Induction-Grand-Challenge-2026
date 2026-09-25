@@ -1,0 +1,36 @@
+wug: KAM rows with SEV/POM sibling n=549  direct KAM EM 0.4572  (sibling row EM 0.4572)
+   rule map up to yat: map(sibling gold)==KAM gold 0.9199 ; map(sibling pred)==KAM gold 0.4353
+   rule map up to sk: map(sibling gold)==KAM gold 0.9253 ; map(sibling pred)==KAM gold 0.4372
+   rule map up to velar: map(sibling gold)==KAM gold 0.9490 ; map(sibling pred)==KAM gold 0.4499
+   rescore ctx0 beta=0.25: EM 0.4572 (fixed 1, broke 1)
+   rescore ctx0 beta=0.5: EM 0.4554 (fixed 1, broke 2)
+   rescore ctx0 beta=1.0: EM 0.4444 (fixed 1, broke 8)
+   rescore ctx0 beta=2.0: EM 0.4244 (fixed 1, broke 19)
+   rescore ctx1 beta=0.25: EM 0.4426 (fixed 1, broke 9)
+   rescore ctx1 beta=0.5: EM 0.4299 (fixed 1, broke 16)
+   rescore ctx1 beta=1.0: EM 0.3971 (fixed 1, broke 34)
+   rescore ctx1 beta=2.0: EM 0.3862 (fixed 1, broke 40)
+   add mapped sibling (sk) alpha=0.5: EM 0.4608 (fixed 2, broke 0)
+   add mapped sibling (sk) alpha=1.0: EM 0.4572 (fixed 2, broke 2)
+   add mapped sibling (sk) alpha=2.0: EM 0.4372 (fixed 2, broke 13)
+   add mapped sibling (velar) alpha=0.5: EM 0.4608 (fixed 2, broke 0)
+   add mapped sibling (velar) alpha=1.0: EM 0.4590 (fixed 2, broke 1)
+   add mapped sibling (velar) alpha=2.0: EM 0.4499 (fixed 2, broke 6)
+unseen: KAM rows with SEV/POM sibling n=577  direct KAM EM 0.3622  (sibling row EM 0.3726)
+   rule map up to yat: map(sibling gold)==KAM gold 0.7782 ; map(sibling pred)==KAM gold 0.3206
+   rule map up to sk: map(sibling gold)==KAM gold 0.8995 ; map(sibling pred)==KAM gold 0.3588
+   rule map up to velar: map(sibling gold)==KAM gold 0.8908 ; map(sibling pred)==KAM gold 0.3518
+   rescore ctx0 beta=0.25: EM 0.3640 (fixed 1, broke 0)
+   rescore ctx0 beta=0.5: EM 0.3640 (fixed 1, broke 0)
+   rescore ctx0 beta=1.0: EM 0.3605 (fixed 1, broke 2)
+   rescore ctx0 beta=2.0: EM 0.3570 (fixed 1, broke 4)
+   rescore ctx1 beta=0.25: EM 0.3622 (fixed 1, broke 1)
+   rescore ctx1 beta=0.5: EM 0.3553 (fixed 0, broke 4)
+   rescore ctx1 beta=1.0: EM 0.3362 (fixed 0, broke 15)
+   rescore ctx1 beta=2.0: EM 0.3102 (fixed 0, broke 30)
+   add mapped sibling (sk) alpha=0.5: EM 0.3657 (fixed 2, broke 0)
+   add mapped sibling (sk) alpha=1.0: EM 0.3622 (fixed 2, broke 2)
+   add mapped sibling (sk) alpha=2.0: EM 0.3588 (fixed 2, broke 4)
+   add mapped sibling (velar) alpha=0.5: EM 0.3640 (fixed 2, broke 1)
+   add mapped sibling (velar) alpha=1.0: EM 0.3588 (fixed 2, broke 4)
+   add mapped sibling (velar) alpha=2.0: EM 0.3518 (fixed 2, broke 8)

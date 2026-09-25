@@ -1,0 +1,18 @@
+py seeds 0.. t=4s hits=0
+py seeds 10000.. t=49s hits=0
+py seeds 20000.. t=88s hits=0
+py seeds 30000.. t=127s hits=0
+py seeds 40000.. t=163s hits=0
+py seeds 50000.. t=196s hits=0
+py seeds 60000.. t=232s hits=0
+py seeds 70000.. t=269s hits=0
+py seeds 80000.. t=303s hits=0
+py seeds 90000.. t=344s hits=0
+yat most negative z:
+     kind fam   seed  K_or_s  pat_or_o           ord  purity         z
+750   yat  py  21251       6         0      rank_rev      -1 -5.242784
+1920  yat  py  54329       8         2     alpha_ADJ      -1 -5.105299
+166   yat  py   4393       7         5       alpha_V      -1 -5.088753
+2989  yat  py  85806       5         4       alpha_V      -1 -5.003760
+2218  yat  py  63400       5         3  alpha_global      -1 -4.974743
+n logged hits 0 time 377 s

@@ -1,0 +1,11 @@
+/Users/md.hamidhosen/.pyenv/versions/3.12.11/lib/python3.12/site-packages/torch/nn/modules/transformer.py:145: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = TransformerEncoder(
+/Users/md.hamidhosen/.pyenv/versions/3.12.11/lib/python3.12/site-packages/torch/nn/modules/activation.py:1337: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+/Users/md.hamidhosen/.pyenv/versions/3.12.11/lib/python3.12/site-packages/torch/nn/modules/activation.py:1337: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  complete: local beams 3011 rows x 2 models in 1126s
+complete  n=3011 base 0.9322 merged 0.9389
+BASE   (np.float64(0.93662), {'complete': (np.float64(0.9322), np.float64(0.0241))})
+MERGED (np.float64(0.94266), {'complete': (np.float64(0.9389), np.float64(0.0234))})
+wrote runs/exp/residual-errors/preds_complete_3012.pkl 3011

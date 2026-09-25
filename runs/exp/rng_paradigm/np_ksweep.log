@@ -1,0 +1,24 @@
+np seeds 0.. t=52s hits=0
+np seeds 2500.. t=427s hits=0
+par largest z:
+      kind fam  seed  K_or_s    pat_or_o       ord    purity         z
+18331  par  np  2956      52          rb    rank_N  0.200000  5.772738
+25041  par  np  3843      61      rnd+rb    rank_V  0.192806  5.519396
+25388  par  np  4067      33  floor_s2o0  rank_ADJ  0.182773  5.247862
+6682   par  np  1236      37  floor_s4o2    rank_N  0.170492  5.244886
+30551  par  np  4883      43      rnd+rb    rank_N  0.181967  5.188595
+yat most negative z:
+      kind fam  seed  K_or_s pat_or_o        ord  purity         z
+17358  yat  np  2923       8        5   rank_rev    -1.0 -4.961452
+6328   yat  np  1203       8        0     rank_N    -1.0 -4.931085
+14181  yat  np  2329       4        0    alpha_N    -1.0 -4.754005
+26775  yat  np  4285       1        0    alpha_N    -1.0 -4.704611
+7904   yat  np  1386       8        1  alpha_ADJ    -1.0 -4.619740
+yat_pat most negative z:
+          kind fam  seed  K_or_s pat_or_o          ord  purity         z
+4992   yat_pat  np   757      35   rnd+rb  rank_global    -1.0 -5.087813
+4984   yat_pat  np   757      35   rb+rnd  rank_global    -1.0 -5.051906
+28521  yat_pat  np  4725      33   rb+rnd  rank_global    -1.0 -4.780944
+27386  yat_pat  np  4366      43   rb+rnd  rank_global    -1.0 -4.536818
+22267  yat_pat  np  3648      34   rb+rnd     rank_ADJ    -1.0 -4.445877
+n logged hits 0 time 784 s

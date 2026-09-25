@@ -1,0 +1,7 @@
+dropping 5308 of 300000 train rows (sub2); fit rows 280687 of 285796
+fit 3 pms in 93s
+transfer  n=13084 prior-cls 0.9711 nn-cls 0.4570 comb-cls 0.9713 EM 0.9525
+complete  n= 6023 prior-cls 0.9485 nn-cls 0.4230 comb-cls 0.9565 EM 0.9402
+wug       n= 6528 prior-cls 0.4692 nn-cls 0.4427 comb-cls 0.4835 EM 0.4669 | clean-gold n=6469 prior-cls 0.4704 comb-cls 0.4846 EM 0.4712
+unseen    n= 7176 prior-cls 0.4041 nn-cls 0.3921 comb-cls 0.4100 EM 0.3785 | clean-gold n=7112 prior-cls 0.4030 comb-cls 0.4089 EM 0.3803
+WEIGHTED (np.float64(0.63985), {'transfer': (np.float64(0.9525), np.float64(0.0225)), 'complete': (np.float64(0.9402), np.float64(0.0232)), 'wug': (np.float64(0.4669), np.float64(0.1434)), 'unseen': (np.float64(0.3785), np.float64(0.1402))})

@@ -1,0 +1,42 @@
+pcg seeds 0.. t=140s hits=0
+pcg seeds 250.. t=149s hits=0
+pcg seeds 500.. t=157s hits=0
+pcg seeds 750.. t=166s hits=0
+pcg seeds 1000.. t=174s hits=0
+pcg seeds 1250.. t=181s hits=0
+pcg seeds 1500.. t=188s hits=0
+pcg seeds 1750.. t=196s hits=0
+pcg seeds 2000.. t=204s hits=0
+pcg seeds 2250.. t=212s hits=0
+pcg seeds 2500.. t=218s hits=0
+pcg seeds 2750.. t=226s hits=0
+pcg seeds 3000.. t=233s hits=0
+pcg seeds 3250.. t=242s hits=0
+pcg seeds 3500.. t=250s hits=0
+pcg seeds 3750.. t=257s hits=0
+pcg seeds 4000.. t=264s hits=0
+pcg seeds 4250.. t=272s hits=0
+pcg seeds 4500.. t=281s hits=0
+pcg seeds 4750.. t=288s hits=0
+par
+     kind  fam  seed  K_or_s    pat_or_o          ord    purity         z
+7351  par  pcg  2875      42  floor_s1o0       rank_N  0.178689  5.167086
+6484  par  pcg  2357      62  floor_s2o1  rank_global  0.237895  5.147127
+1938  par  pcg   724      39  floor_s1o0       rank_V  0.153957  5.072511
+4980  par  pcg  1886      43  floor_s1o0  rank_global  0.202105  5.007401
+2047  par  pcg   513      46    integers       rank_N  0.185246  4.975076
+yat
+      kind  fam  seed  K_or_s pat_or_o           ord  purity         z
+11300  yat  pcg  4537       5        2        rank_N    -1.0 -5.217074
+8313   yat  pcg  3292       3        2      rank_rev    -1.0 -5.090805
+10719  yat  pcg  4466       7        6  alpha_global    -1.0 -4.503779
+10724  yat  pcg  4335       8        4      rank_ADJ    -1.0 -4.494453
+8337   yat  pcg  3264       8        1      rank_ADJ    -1.0 -4.448949
+yat_pat
+        kind  fam  seed  K_or_s pat_or_o     ord  purity         z
+47   yat_pat  pcg    33      30  int+rnd  rank_N    -1.0 -3.011715
+79   yat_pat  pcg    33      31  int+rnd  rank_N    -1.0 -3.011715
+111  yat_pat  pcg    33      32  int+rnd  rank_N    -1.0 -3.011715
+143  yat_pat  pcg    33      33  int+rnd  rank_N    -1.0 -3.011715
+175  yat_pat  pcg    33      34  int+rnd  rank_N    -1.0 -3.011715
+hits 0 time 288

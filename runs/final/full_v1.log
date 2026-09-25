@@ -1,0 +1,16 @@
+  fit cur5 K=600 seed=0 in 55s
+  fit cur5 K=600 seed=1 in 49s
+  fit cur5 K=600 seed=2 in 40s
+  fit cur5 K=600 seed=3 in 35s
+  fit cur5 K=600 seed=4 in 31s
+  fit cur5 K=600 seed=5 in 13s
+  fit 3way K=300 seed=0 in 7s
+  fit 3way K=300 seed=1 in 5s
+  fit 3way K=300 seed=2 in 6s
+priors ready 260s
+candidates ready 265s
+  transfer: 18000 rows decided
+  complete: 15000 rows decided
+  wug: 18260 rows decided
+  unseen: 8740 rows decided
+wrote runs/final/sub_final_v1.csv 60000 304s

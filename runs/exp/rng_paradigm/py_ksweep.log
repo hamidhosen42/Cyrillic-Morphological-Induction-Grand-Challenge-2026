@@ -1,0 +1,24 @@
+py seeds 0.. t=53s hits=0
+py seeds 2500.. t=434s hits=1
+par largest z:
+      kind fam  seed  K_or_s    pat_or_o          ord    purity         z
+7825   par  py  1212      63  floor_s4o2       rank_V  0.198561  6.131188
+27215  par  py  4309      39      rb+rnd       rank_V  0.156835  5.646812
+19182  par  py  3113      35  floor_s2o1       rank_N  0.167213  5.583805
+13108  par  py  2071      40  floor_s4o1     rank_ADJ  0.199580  5.383684
+27146  par  py  4353      37  floor_s4o0  rank_global  0.191579  5.329898
+yat most negative z:
+      kind fam  seed  K_or_s pat_or_o        ord  purity         z
+26801  yat  py  4393       7        5    alpha_V    -1.0 -5.088753
+20492  yat  py  3349       6        2  alpha_ADJ    -1.0 -4.658195
+11034  yat  py  1898       4        3  alpha_ADJ    -1.0 -4.567564
+9460   yat  py  1665       5        0    alpha_N    -1.0 -4.564927
+23650  yat  py  3945       7        4   rank_ADJ    -1.0 -4.490598
+yat_pat most negative z:
+          kind fam  seed  K_or_s pat_or_o          ord  purity         z
+2540   yat_pat  py   398      51   rb+rnd     rank_ADJ    -1.0 -4.732328
+2546   yat_pat  py   398      51   rnd+rb  rank_global    -1.0 -4.717350
+5260   yat_pat  py   852      41   rnd+rb       rank_V    -1.0 -4.592467
+13431  yat_pat  py  2234      48   rb+rnd  rank_global    -1.0 -4.559923
+18422  yat_pat  py  2970      54   rb+rnd     rank_ADJ    -1.0 -4.555675
+n logged hits 1 time 800 s

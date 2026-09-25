@@ -1,0 +1,8 @@
+ctx_clean: 324800 -> 319132 context rows
+priors ready 3s
+candidates ready 5s
+  transfer: 18000 rows decided
+  complete: 15000 rows decided
+  wug: 18260 rows decided
+  unseen: 8740 rows decided
+wrote runs/final/sub_final_v2a.csv 60000 18s

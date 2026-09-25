@@ -1,0 +1,24 @@
+ctx_clean: 286296 -> 281176 context rows
+priors ready 3s
+/Users/md.hamidhosen/.pyenv/versions/3.12.11/lib/python3.12/site-packages/torch/nn/modules/transformer.py:145: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = TransformerEncoder(
+loaded 2 local models on mps
+candidates ready 4s
+BASELINE (cur5 lam2 joint K5=600 mu=0): (np.float64(0.64152), {'transfer': (np.float64(0.9541), np.float64(0.022)), 'complete': (np.float64(0.9414), np.float64(0.0227)), 'wug': (np.float64(0.4698), np.float64(0.1427)), 'unseen': (np.float64(0.3792), np.float64(0.14))})
+CONFIG {"transfer": {"rep": "cur5", "lam": 2.0, "joint": true}, "complete": {"rep": "3way", "lam": 5.0, "joint": true}, "wug": {"rep": "3way", "lam": 5.0, "joint": true}, "unseen": {"rep": "cur5", "lam": 2.0, "joint": false}} mu 0.6 -> (np.float64(0.65458), {'transfer': (np.float64(0.9554), np.float64(0.0219)), 'complete': (np.float64(0.948), np.float64(0.0205)), 'wug': (np.float64(0.4916), np.float64(0.1374)), 'unseen': (np.float64(0.3944), np.float64(0.1367))})
+DELTA weighted score: +0.01306
+/Users/md.hamidhosen/.pyenv/versions/3.12.11/lib/python3.12/site-packages/torch/nn/modules/activation.py:1337: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+    local beam cache: 13084 decoded, 0 reused
+  [transfer] local beams 13084 rows x 2 models in 280s
+   transfer: no-pool EM 0.9554 w0.5:0.9587
+    local beam cache: 6023 decoded, 0 reused
+  [complete] local beams 6023 rows x 2 models in 131s
+   complete: no-pool EM 0.9480 w0.5:0.9504
+    local beam cache: 6528 decoded, 0 reused
+  [wug] local beams 6528 rows x 2 models in 76s
+   wug: no-pool EM 0.4916 w0.5:0.4945
+    local beam cache: 7176 decoded, 0 reused
+  [unseen] local beams 7176 rows x 2 models in 98s
+   unseen: no-pool EM 0.3944 w0.5:0.3970
+POOLED w_loc=0.5 (np.float64(0.6571), {'transfer': (np.float64(0.9587), np.float64(0.0215)), 'complete': (np.float64(0.9504), np.float64(0.0203)), 'wug': (np.float64(0.4945), np.float64(0.1368)), 'unseen': (np.float64(0.397), np.float64(0.1364))})

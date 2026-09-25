@@ -1,0 +1,6 @@
+fit 3 pms in 65s
+transfer  n=13084 prior-cls 0.9687 nn-cls 0.4570 comb-cls 0.9686 EM 0.9500
+complete  n= 6023 prior-cls 0.9445 nn-cls 0.4230 comb-cls 0.9517 EM 0.9361
+wug       n= 6528 prior-cls 0.4668 nn-cls 0.4427 comb-cls 0.4844 EM 0.4677 | clean-gold n=6469 prior-cls 0.4678 comb-cls 0.4854 EM 0.4719
+unseen    n= 7176 prior-cls 0.4059 nn-cls 0.3921 comb-cls 0.4112 EM 0.3790 | clean-gold n=7112 prior-cls 0.4048 comb-cls 0.4104 EM 0.3809
+WEIGHTED (np.float64(0.63912), {'transfer': (np.float64(0.95), np.float64(0.0232)), 'complete': (np.float64(0.9361), np.float64(0.024)), 'wug': (np.float64(0.4677), np.float64(0.1436)), 'unseen': (np.float64(0.379), np.float64(0.1399))})

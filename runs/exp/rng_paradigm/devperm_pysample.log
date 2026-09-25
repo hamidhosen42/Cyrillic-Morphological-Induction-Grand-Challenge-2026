@@ -1,0 +1,6 @@
+train sorted by canonical key: True violations 0
+pysample 2000 t=119s best (-0.11983291375125285, (877, 320000))
+pysample 4000 t=236s best (-0.127757420374632, (3437, 320000))
+pysample 6000 t=359s best (-0.127757420374632, (3437, 320000))
+pysample 8000 t=488s best (-0.127757420374632, (3437, 320000))
+pysample done; best |rho| (0.12849534271637106, (8742, 320000)) null sd 0.03162277660168379 hits [] time 632

@@ -1,0 +1,263 @@
+loaded splits+cands in 6s
+built tables in 7s
+
+=== DIAGNOSTICS (n per segment: transfer=13084 rows/8973 lemmas, complete=6023 rows/5030 lemmas, wug=6528 rows/500 lemmas, unseen=7176 rows/250 lemmas)
+transfer  oracle(gold in beam) 0.9751 | oracle-class then argmax 0.9668 | NN-only EM 0.4458 | baseline EM 0.9503 class-acc 0.9689 | baseline errors: stress-wrong 3.1% of rows, segmental-only 1.9% of rows
+complete  oracle(gold in beam) 0.9801 | oracle-class then argmax 0.9726 | NN-only EM 0.4121 | baseline EM 0.9357 class-acc 0.9515 | baseline errors: stress-wrong 4.8% of rows, segmental-only 1.6% of rows
+wug       oracle(gold in beam) 0.9773 | oracle-class then argmax 0.9606 | NN-only EM 0.4257 | baseline EM 0.4675 class-acc 0.4838 | baseline errors: stress-wrong 51.6% of rows, segmental-only 1.6% of rows
+unseen    oracle(gold in beam) 0.9654 | oracle-class then argmax 0.9309 | NN-only EM 0.3654 | baseline EM 0.3788 class-acc 0.4104 | baseline errors: stress-wrong 59.0% of rows, segmental-only 3.2% of rows
+BASELINE lam=2 joint K300          score 0.63898 | transfer: EM 0.9503 CER 0.0231 complete: EM 0.9357 CER 0.0242 wug: EM 0.4675 CER 0.1432 unseen: EM 0.3788 CER 0.1401
+
+=== STAGE A: K x joint x lam (T=1,sum,hard)
+transfer  base obj 0.95297 (EM 0.9503) -> best obj 0.95419 (EM 0.9516 CER 0.0227) d_obj=+0.00121 cfg={'K': 600, 'lam': 10, 'joint': False}
+     0.95419 EM 0.9516 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False}
+     0.95419 EM 0.9516 CER 0.0227 {'K': 600, 'lam': 10}
+     0.95418 EM 0.9516 CER 0.0228 {'K': 600, 'lam': 6}
+     0.95418 EM 0.9516 CER 0.0228 {'K': 600, 'lam': 6, 'joint': False}
+     0.95398 EM 0.9514 CER 0.0228 {'K': 600, 'lam': 1000}
+     0.95398 EM 0.9514 CER 0.0228 {'K': 600, 'lam': 1000, 'joint': False}
+complete  base obj 0.93975 (EM 0.9357) -> best obj 0.94130 (EM 0.9374 CER 0.0236) d_obj=+0.00155 cfg={'K': 600, 'lam': 3}
+     0.94130 EM 0.9374 CER 0.0236 {'K': 600, 'lam': 3}
+     0.94130 EM 0.9374 CER 0.0236 {'K': 600, 'lam': 3, 'joint': False}
+     0.94070 EM 0.9367 CER 0.0237 {'K': 600, 'lam': 4}
+     0.94070 EM 0.9367 CER 0.0237 {'K': 600, 'lam': 4, 'joint': False}
+     0.94067 EM 0.9367 CER 0.0240 {'K': 600}
+     0.94067 EM 0.9367 CER 0.0240 {'K': 600, 'joint': False}
+wug       base obj 0.50645 (EM 0.4675) -> best obj 0.51086 (EM 0.4723 CER 0.1418) d_obj=+0.00442 cfg={'K': 600, 'lam': 1, 'joint': False}
+     0.51086 EM 0.4723 CER 0.1418 {'K': 600, 'lam': 1, 'joint': False}
+     0.50868 EM 0.4700 CER 0.1430 {'K': 600, 'lam': 1.5, 'joint': False}
+     0.50862 EM 0.4698 CER 0.1422 {'lam': 1, 'joint': False}
+     0.50746 EM 0.4686 CER 0.1427 {'K': 600, 'lam': 1.5}
+     0.50712 EM 0.4683 CER 0.1434 {'lam': 1.5, 'joint': False}
+     0.50710 EM 0.4683 CER 0.1437 {'K': 600, 'lam': 6}
+unseen    base obj 0.42688 (EM 0.3788) -> best obj 0.43344 (EM 0.3859 CER 0.1385) d_obj=+0.00656 cfg={'K': 600, 'joint': False}
+     0.43344 EM 0.3859 CER 0.1385 {'K': 600, 'joint': False}
+     0.43114 EM 0.3834 CER 0.1389 {'joint': False}
+     0.43011 EM 0.3822 CER 0.1391 {'K': 600, 'lam': 4}
+     0.42983 EM 0.3820 CER 0.1394 {'lam': 1.5, 'joint': False}
+     0.42924 EM 0.3813 CER 0.1391 {'K': 600, 'lam': 3, 'joint': False}
+     0.42911 EM 0.3811 CER 0.1390 {'K': 600, 'lam': 6}
+after A                            score 0.64290 | transfer: EM 0.9516 CER 0.0227 complete: EM 0.9374 CER 0.0236 wug: EM 0.4723 CER 0.1418 unseen: EM 0.3859 CER 0.1385
+
+=== STAGE B: temperature x lam
+transfer  base obj 0.95419 (EM 0.9516) -> best obj 0.95419 (EM 0.9516 CER 0.0227) d_obj=+0.00000 cfg={'K': 600, 'lam': 10, 'joint': False}
+     0.95419 EM 0.9516 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False}
+     0.95418 EM 0.9516 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'T': 0.7}
+     0.95418 EM 0.9516 CER 0.0227 {'K': 600, 'lam': 6, 'joint': False, 'T': 1.5}
+     0.95418 EM 0.9516 CER 0.0228 {'K': 600, 'lam': 6, 'joint': False}
+     0.95412 EM 0.9515 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'T': 3.0}
+     0.95412 EM 0.9515 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'T': 1.5}
+complete  base obj 0.94130 (EM 0.9374) -> best obj 0.94145 (EM 0.9376 CER 0.0236) d_obj=+0.00015 cfg={'K': 600, 'lam': 4, 'T': 0.7}
+     0.94145 EM 0.9376 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7}
+     0.94130 EM 0.9374 CER 0.0236 {'K': 600, 'lam': 3}
+     0.94130 EM 0.9374 CER 0.0237 {'K': 600, 'lam': 6, 'T': 0.5}
+     0.94115 EM 0.9372 CER 0.0237 {'K': 600, 'T': 1.5}
+     0.94085 EM 0.9369 CER 0.0237 {'K': 600, 'lam': 6, 'T': 0.7}
+     0.94082 EM 0.9369 CER 0.0239 {'K': 600, 'lam': 4, 'T': 0.5}
+wug       base obj 0.51086 (EM 0.4723) -> best obj 0.51086 (EM 0.4723 CER 0.1418) d_obj=+0.00000 cfg={'K': 600, 'lam': 1, 'joint': False}
+     0.51086 EM 0.4723 CER 0.1418 {'K': 600, 'lam': 1, 'joint': False}
+     0.51025 EM 0.4717 CER 0.1425 {'K': 600, 'joint': False, 'T': 0.7}
+     0.51018 EM 0.4715 CER 0.1418 {'K': 600, 'lam': 1.5, 'joint': False, 'T': 0.5}
+     0.50974 EM 0.4710 CER 0.1420 {'K': 600, 'joint': False, 'T': 0.5}
+     0.50945 EM 0.4707 CER 0.1422 {'K': 600, 'lam': 1.5, 'joint': False, 'T': 0.7}
+     0.50868 EM 0.4700 CER 0.1430 {'K': 600, 'lam': 1.5, 'joint': False}
+unseen    base obj 0.43344 (EM 0.3859) -> best obj 0.43344 (EM 0.3859 CER 0.1385) d_obj=+0.00000 cfg={'K': 600, 'joint': False}
+     0.43344 EM 0.3859 CER 0.1385 {'K': 600, 'joint': False}
+     0.43187 EM 0.3842 CER 0.1391 {'K': 600, 'lam': 1.5, 'joint': False, 'T': 2.0}
+     0.43154 EM 0.3838 CER 0.1386 {'K': 600, 'lam': 4, 'joint': False, 'T': 0.5}
+     0.43114 EM 0.3834 CER 0.1389 {'K': 600, 'joint': False, 'T': 1.5}
+     0.43111 EM 0.3834 CER 0.1392 {'K': 600, 'lam': 1.5, 'joint': False, 'T': 1.5}
+     0.43103 EM 0.3832 CER 0.1387 {'K': 600, 'lam': 3, 'joint': False, 'T': 0.7}
+after B                            score 0.64293 | transfer: EM 0.9516 CER 0.0227 complete: EM 0.9376 CER 0.0236 wug: EM 0.4723 CER 0.1418 unseen: EM 0.3859 CER 0.1385
+
+=== STAGE C: mass agg x group norm x lam
+transfer  base obj 0.95419 (EM 0.9516) -> best obj 0.95426 (EM 0.9517 CER 0.0227) d_obj=+0.00007 cfg={'K': 600, 'lam': 10, 'joint': False, 'agg': 'max'}
+     0.95426 EM 0.9517 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max'}
+     0.95426 EM 0.9517 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'gnorm': 'mean'}
+     0.95426 EM 0.9517 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'gnorm': 'sqrt'}
+     0.95419 EM 0.9516 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False}
+     0.95419 EM 0.9516 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'gnorm': 'mean'}
+     0.95419 EM 0.9516 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'gnorm': 'sqrt'}
+complete  base obj 0.94145 (EM 0.9376) -> best obj 0.94145 (EM 0.9376 CER 0.0236) d_obj=+0.00000 cfg={'K': 600, 'lam': 4, 'T': 0.7}
+     0.94145 EM 0.9376 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7}
+     0.94145 EM 0.9376 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'gnorm': 'mean'}
+     0.94145 EM 0.9376 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'gnorm': 'sqrt'}
+     0.94145 EM 0.9376 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'agg': 'max'}
+     0.94145 EM 0.9376 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'agg': 'max', 'gnorm': 'mean'}
+     0.94145 EM 0.9376 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'agg': 'max', 'gnorm': 'sqrt'}
+wug       base obj 0.51086 (EM 0.4723) -> best obj 0.51086 (EM 0.4723 CER 0.1418) d_obj=+0.00000 cfg={'K': 600, 'lam': 1, 'joint': False}
+     0.51086 EM 0.4723 CER 0.1418 {'K': 600, 'lam': 1, 'joint': False}
+     0.51086 EM 0.4723 CER 0.1418 {'K': 600, 'lam': 1, 'joint': False, 'gnorm': 'mean'}
+     0.51086 EM 0.4723 CER 0.1418 {'K': 600, 'lam': 1, 'joint': False, 'gnorm': 'sqrt'}
+     0.50974 EM 0.4710 CER 0.1420 {'K': 600, 'lam': 1, 'joint': False, 'agg': 'max'}
+     0.50974 EM 0.4710 CER 0.1420 {'K': 600, 'lam': 1, 'joint': False, 'agg': 'max', 'gnorm': 'mean'}
+     0.50974 EM 0.4710 CER 0.1420 {'K': 600, 'lam': 1, 'joint': False, 'agg': 'max', 'gnorm': 'sqrt'}
+unseen    base obj 0.43344 (EM 0.3859) -> best obj 0.43344 (EM 0.3859 CER 0.1385) d_obj=+0.00000 cfg={'K': 600, 'joint': False}
+     0.43344 EM 0.3859 CER 0.1385 {'K': 600, 'joint': False}
+     0.43344 EM 0.3859 CER 0.1385 {'K': 600, 'joint': False, 'gnorm': 'mean'}
+     0.43344 EM 0.3859 CER 0.1385 {'K': 600, 'joint': False, 'gnorm': 'sqrt'}
+     0.43063 EM 0.3828 CER 0.1389 {'K': 600, 'joint': False, 'agg': 'max'}
+     0.43063 EM 0.3828 CER 0.1389 {'K': 600, 'joint': False, 'agg': 'max', 'gnorm': 'mean'}
+     0.43063 EM 0.3828 CER 0.1389 {'K': 600, 'joint': False, 'agg': 'max', 'gnorm': 'sqrt'}
+after C                            score 0.64294 | transfer: EM 0.9517 CER 0.0227 complete: EM 0.9376 CER 0.0236 wug: EM 0.4723 CER 0.1418 unseen: EM 0.3859 CER 0.1385
+
+=== STAGE C2: prior eps-mix x K(both) x lam
+transfer  base obj 0.95426 (EM 0.9517) -> best obj 0.95433 (EM 0.9518 CER 0.0227) d_obj=+0.00007 cfg={'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'eps': 0.1}
+     0.95433 EM 0.9518 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'eps': 0.1}
+     0.95433 EM 0.9518 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'eps': 0.2}
+     0.95426 EM 0.9517 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max'}
+     0.95426 EM 0.9517 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'eps': 0.02}
+     0.95426 EM 0.9517 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'eps': 0.05}
+     0.95418 EM 0.9516 CER 0.0228 {'K': 600, 'lam': 6, 'joint': False, 'agg': 'max'}
+complete  base obj 0.94145 (EM 0.9376) -> best obj 0.94145 (EM 0.9376 CER 0.0236) d_obj=+0.00000 cfg={'K': 600, 'lam': 4, 'T': 0.7}
+     0.94145 EM 0.9376 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7}
+     0.94145 EM 0.9376 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'eps': 0.02}
+     0.94145 EM 0.9376 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'eps': 0.05}
+     0.94129 EM 0.9374 CER 0.0237 {'K': 600, 'lam': 4, 'T': 0.7, 'eps': 0.1}
+     0.94115 EM 0.9372 CER 0.0236 {'K': 600, 'lam': 6, 'T': 0.7, 'eps': 0.2}
+     0.94097 EM 0.9371 CER 0.0239 {'K': 600, 'lam': 4, 'T': 0.7, 'eps': 0.2}
+wug       base obj 0.51086 (EM 0.4723) -> best obj 0.51086 (EM 0.4723 CER 0.1418) d_obj=+0.00000 cfg={'K': 600, 'lam': 1, 'joint': False}
+     0.51086 EM 0.4723 CER 0.1418 {'K': 600, 'lam': 1, 'joint': False}
+     0.51086 EM 0.4723 CER 0.1418 {'K': 600, 'lam': 1, 'joint': False, 'eps': 0.02}
+     0.51085 EM 0.4723 CER 0.1419 {'K': 600, 'lam': 1, 'joint': False, 'eps': 0.2}
+     0.51030 EM 0.4717 CER 0.1419 {'K': 600, 'lam': 1, 'joint': False, 'eps': 0.05}
+     0.51010 EM 0.4715 CER 0.1426 {'K': 'both', 'lam': 1.5, 'joint': False, 'eps': 0.2}
+     0.51003 EM 0.4714 CER 0.1419 {'K': 'both', 'lam': 1, 'joint': False, 'eps': 0.02}
+unseen    base obj 0.43344 (EM 0.3859) -> best obj 0.43420 (EM 0.3867 CER 0.1383) d_obj=+0.00077 cfg={'K': 'both', 'joint': False, 'eps': 0.1}
+     0.43420 EM 0.3867 CER 0.1383 {'K': 'both', 'joint': False, 'eps': 0.1}
+     0.43369 EM 0.3861 CER 0.1384 {'K': 600, 'joint': False, 'eps': 0.02}
+     0.43356 EM 0.3860 CER 0.1385 {'K': 600, 'joint': False, 'eps': 0.05}
+     0.43344 EM 0.3859 CER 0.1385 {'K': 600, 'joint': False}
+     0.43330 EM 0.3857 CER 0.1386 {'joint': False, 'eps': 0.2}
+     0.43305 EM 0.3855 CER 0.1385 {'K': 'both', 'joint': False, 'eps': 0.05}
+after C2                           score 0.64314 | transfer: EM 0.9518 CER 0.0227 complete: EM 0.9376 CER 0.0236 wug: EM 0.4723 CER 0.1418 unseen: EM 0.3867 CER 0.1383
+
+=== STAGE D: selection rule x length prior mu
+transfer  base obj 0.95433 (EM 0.9518) -> best obj 0.95563 (EM 0.9532 CER 0.0227) d_obj=+0.00131 cfg={'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'eps': 0.1}
+     0.95563 EM 0.9532 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'eps': 0.1}
+     0.95557 EM 0.9531 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'mu': 1.0, 'eps': 0.1}
+     0.95556 EM 0.9531 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'soft', 'mu': 1.0, 'eps': 0.1}
+     0.95556 EM 0.9531 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr', 'mu': 1.0, 'eps': 0.1}
+     0.95550 EM 0.9531 CER 0.0226 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 0.6, 'eps': 0.1}
+     0.95544 EM 0.9530 CER 0.0226 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'mu': 0.6, 'eps': 0.1}
+complete  base obj 0.94145 (EM 0.9376) -> best obj 0.94221 (EM 0.9384 CER 0.0236) d_obj=+0.00076 cfg={'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3}
+     0.94221 EM 0.9384 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3}
+     0.94221 EM 0.9384 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'sel': 'soft', 'mu': 0.3}
+     0.94221 EM 0.9384 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'sel': 'mbr', 'mu': 0.3}
+     0.94221 EM 0.9384 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'sel': 'mbr_hard', 'mu': 0.3}
+     0.94220 EM 0.9384 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.6}
+     0.94220 EM 0.9384 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'sel': 'mbr_hard', 'mu': 0.6}
+wug       base obj 0.51086 (EM 0.4723) -> best obj 0.51244 (EM 0.4740 CER 0.1412) d_obj=+0.00158 cfg={'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0}
+     0.51244 EM 0.4740 CER 0.1412 {'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0}
+     0.51244 EM 0.4740 CER 0.1412 {'K': 600, 'lam': 1, 'joint': False, 'sel': 'mbr_hard', 'mu': 1.0}
+     0.51214 EM 0.4737 CER 0.1414 {'K': 600, 'lam': 1, 'joint': False, 'mu': 0.6}
+     0.51214 EM 0.4737 CER 0.1414 {'K': 600, 'lam': 1, 'joint': False, 'sel': 'mbr_hard', 'mu': 0.6}
+     0.51184 EM 0.4733 CER 0.1417 {'K': 600, 'lam': 1, 'joint': False, 'mu': 0.3}
+     0.51184 EM 0.4733 CER 0.1417 {'K': 600, 'lam': 1, 'joint': False, 'sel': 'mbr_hard', 'mu': 0.3}
+unseen    base obj 0.43420 (EM 0.3867) -> best obj 0.44036 (EM 0.3934 CER 0.1369) d_obj=+0.00616 cfg={'K': 'both', 'joint': False, 'mu': 0.6, 'eps': 0.1}
+     0.44036 EM 0.3934 CER 0.1369 {'K': 'both', 'joint': False, 'mu': 0.6, 'eps': 0.1}
+     0.44036 EM 0.3934 CER 0.1369 {'K': 'both', 'joint': False, 'sel': 'mbr_hard', 'mu': 0.6, 'eps': 0.1}
+     0.43975 EM 0.3927 CER 0.1368 {'K': 'both', 'joint': False, 'sel': 'soft', 'mu': 0.6, 'eps': 0.1}
+     0.43961 EM 0.3926 CER 0.1369 {'K': 'both', 'joint': False, 'sel': 'mbr', 'mu': 0.6, 'eps': 0.1}
+     0.43947 EM 0.3924 CER 0.1371 {'K': 'both', 'joint': False, 'mu': 1.0, 'eps': 0.1}
+     0.43947 EM 0.3924 CER 0.1371 {'K': 'both', 'joint': False, 'sel': 'mbr_hard', 'mu': 1.0, 'eps': 0.1}
+after D                            score 0.64567 | transfer: EM 0.9532 CER 0.0227 complete: EM 0.9384 CER 0.0236 wug: EM 0.4740 CER 0.1412 unseen: EM 0.3934 CER 0.1369
+
+=== STAGE E: same-cell class boost beta
+transfer  base obj 0.95563 (EM 0.9532) -> best obj 0.95614 (EM 0.9538 CER 0.0225) d_obj=+0.00050 cfg={'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'beta': 1, 'eps': 0.1}
+     0.95614 EM 0.9538 CER 0.0225 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'beta': 1, 'eps': 0.1}
+     0.95600 EM 0.9536 CER 0.0225 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'beta': 2, 'eps': 0.1}
+     0.95563 EM 0.9532 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'eps': 0.1}
+     0.95543 EM 0.9530 CER 0.0227 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'beta': 0.5, 'eps': 0.1}
+     0.95425 EM 0.9517 CER 0.0228 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'beta': 4, 'eps': 0.1}
+complete  base obj 0.94221 (EM 0.9384) -> best obj 0.94221 (EM 0.9384 CER 0.0236) d_obj=+0.00000 cfg={'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3}
+     0.94221 EM 0.9384 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3}
+     0.94221 EM 0.9384 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3, 'beta': 0.5}
+     0.94221 EM 0.9384 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3, 'beta': 1}
+     0.94221 EM 0.9384 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3, 'beta': 2}
+     0.94221 EM 0.9384 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3, 'beta': 4}
+wug       base obj 0.51244 (EM 0.4740) -> best obj 0.51244 (EM 0.4740 CER 0.1412) d_obj=+0.00000 cfg={'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0}
+     0.51244 EM 0.4740 CER 0.1412 {'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0}
+     0.51244 EM 0.4740 CER 0.1412 {'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0, 'beta': 0.5}
+     0.51244 EM 0.4740 CER 0.1412 {'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0, 'beta': 1}
+     0.51244 EM 0.4740 CER 0.1412 {'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0, 'beta': 2}
+     0.51244 EM 0.4740 CER 0.1412 {'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0, 'beta': 4}
+unseen    base obj 0.44036 (EM 0.3934) -> best obj 0.44036 (EM 0.3934 CER 0.1369) d_obj=+0.00000 cfg={'K': 'both', 'joint': False, 'mu': 0.6, 'eps': 0.1}
+     0.44036 EM 0.3934 CER 0.1369 {'K': 'both', 'joint': False, 'mu': 0.6, 'eps': 0.1}
+     0.44036 EM 0.3934 CER 0.1369 {'K': 'both', 'joint': False, 'mu': 0.6, 'beta': 0.5, 'eps': 0.1}
+     0.44036 EM 0.3934 CER 0.1369 {'K': 'both', 'joint': False, 'mu': 0.6, 'beta': 1, 'eps': 0.1}
+     0.44036 EM 0.3934 CER 0.1369 {'K': 'both', 'joint': False, 'mu': 0.6, 'beta': 2, 'eps': 0.1}
+     0.44036 EM 0.3934 CER 0.1369 {'K': 'both', 'joint': False, 'mu': 0.6, 'beta': 4, 'eps': 0.1}
+after E                            score 0.64573 | transfer: EM 0.9538 CER 0.0225 complete: EM 0.9384 CER 0.0236 wug: EM 0.4740 CER 0.1412 unseen: EM 0.3934 CER 0.1369
+
+=== STAGE G1: fallback when class absent from beam
+transfer  base obj 0.95614 (EM 0.9538) -> best obj 0.95614 (EM 0.9538 CER 0.0225) d_obj=+0.00000 cfg={'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'beta': 1, 'eps': 0.1}
+     0.95614 EM 0.9538 CER 0.0225 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'beta': 1, 'eps': 0.1}
+     0.95613 EM 0.9538 CER 0.0225 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'beta': 1, 'eps': 0.1, 'fallback': 'next'}
+complete  base obj 0.94221 (EM 0.9384) -> best obj 0.94221 (EM 0.9384 CER 0.0236) d_obj=+0.00000 cfg={'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3}
+     0.94221 EM 0.9384 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3}
+     0.94221 EM 0.9384 CER 0.0236 {'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3, 'fallback': 'next'}
+wug       base obj 0.51244 (EM 0.4740) -> best obj 0.51244 (EM 0.4740 CER 0.1412) d_obj=+0.00000 cfg={'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0}
+     0.51244 EM 0.4740 CER 0.1412 {'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0}
+     0.51244 EM 0.4740 CER 0.1412 {'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0, 'fallback': 'next'}
+unseen    base obj 0.44036 (EM 0.3934) -> best obj 0.44036 (EM 0.3934 CER 0.1369) d_obj=+0.00000 cfg={'K': 'both', 'joint': False, 'mu': 0.6, 'eps': 0.1}
+     0.44036 EM 0.3934 CER 0.1369 {'K': 'both', 'joint': False, 'mu': 0.6, 'eps': 0.1}
+     0.44036 EM 0.3934 CER 0.1369 {'K': 'both', 'joint': False, 'mu': 0.6, 'eps': 0.1, 'fallback': 'next'}
+
+=== STAGE G2: per-class additive bias on class score (coordinate ascent, 2 passes)
+transfer  obj 0.95614 -> 0.95628 (EM 0.9539 CER 0.0224) d_obj=+0.00014 bias=[-1.0, -1.0, 0.0, 0.5, 0.0]
+complete  obj 0.94221 -> 0.94360 (EM 0.9399 CER 0.0230) d_obj=+0.00140 bias=[-1.5, 0.0, 0.0, 1.5, 0.0]
+wug       obj 0.51244 -> 0.52003 (EM 0.4822 CER 0.1398) d_obj=+0.00759 bias=[0.0, -0.25, 0.25, 0.5, 0.0]
+unseen    obj 0.44036 -> 0.44036 (EM 0.3934 CER 0.1369) d_obj=+0.00000 bias=[0.0, 0.0, 0.0, 0.0, 0.0]
+after G (class bias)               score 0.64907 | transfer: EM 0.9539 CER 0.0224 complete: EM 0.9399 CER 0.0230 wug: EM 0.4822 CER 0.1398 unseen: EM 0.3934 CER 0.1369
+
+=== STAGE F: per-POS lam
+transfer  base obj 0.95628 (EM 0.9539) -> best obj 0.95649 (EM 0.9541 CER 0.0223) d_obj=+0.00021 cfg={'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'beta': 1, 'lam_pos': {'N': 10, 'V': 4, 'ADJ': 10}, 'eps': 0.1, 'bias': [-1.0, -1.0, 0.0, 0.5, 0.0]}
+     0.95649 EM 0.9541 CER 0.0223 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'beta': 1, 'lam_pos': {'N': 10, 'V': 4, 'ADJ': 10}, 'eps': 0.1, 'bias': [-1.0, -1.0, 0.0, 0.5, 0.0]}
+     0.95649 EM 0.9541 CER 0.0224 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'beta': 1, 'lam_pos': {'N': 10, 'V': 3, 'ADJ': 10}, 'eps': 0.1, 'bias': [-1.0, -1.0, 0.0, 0.5, 0.0]}
+     0.95649 EM 0.9541 CER 0.0224 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'beta': 1, 'lam_pos': {'N': 6, 'V': 4, 'ADJ': 10}, 'eps': 0.1, 'bias': [-1.0, -1.0, 0.0, 0.5, 0.0]}
+     0.95649 EM 0.9541 CER 0.0224 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'beta': 1, 'lam_pos': {'N': 6, 'V': 3, 'ADJ': 10}, 'eps': 0.1, 'bias': [-1.0, -1.0, 0.0, 0.5, 0.0]}
+     0.95642 EM 0.9541 CER 0.0224 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'beta': 1, 'lam_pos': {'N': 10, 'V': 6, 'ADJ': 10}, 'eps': 0.1, 'bias': [-1.0, -1.0, 0.0, 0.5, 0.0]}
+     0.95642 EM 0.9541 CER 0.0224 {'K': 600, 'lam': 10, 'joint': False, 'agg': 'max', 'sel': 'mbr_hard', 'mu': 1.0, 'beta': 1, 'lam_pos': {'N': 6, 'V': 6, 'ADJ': 10}, 'eps': 0.1, 'bias': [-1.0, -1.0, 0.0, 0.5, 0.0]}
+complete  base obj 0.94360 (EM 0.9399) -> best obj 0.94407 (EM 0.9404 CER 0.0229) d_obj=+0.00046 cfg={'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3, 'lam_pos': {'N': 3, 'V': 6, 'ADJ': 10}, 'bias': [-1.5, 0.0, 0.0, 1.5, 0.0]}
+     0.94407 EM 0.9404 CER 0.0229 {'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3, 'lam_pos': {'N': 3, 'V': 6, 'ADJ': 10}, 'bias': [-1.5, 0.0, 0.0, 1.5, 0.0]}
+     0.94406 EM 0.9404 CER 0.0229 {'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3, 'lam_pos': {'N': 3, 'V': 6, 'ADJ': 3}, 'bias': [-1.5, 0.0, 0.0, 1.5, 0.0]}
+     0.94406 EM 0.9404 CER 0.0229 {'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3, 'lam_pos': {'N': 3, 'V': 4, 'ADJ': 10}, 'bias': [-1.5, 0.0, 0.0, 1.5, 0.0]}
+     0.94406 EM 0.9404 CER 0.0230 {'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3, 'lam_pos': {'N': 3, 'V': 4, 'ADJ': 3}, 'bias': [-1.5, 0.0, 0.0, 1.5, 0.0]}
+     0.94391 EM 0.9402 CER 0.0229 {'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3, 'lam_pos': {'N': 3, 'V': 10, 'ADJ': 10}, 'bias': [-1.5, 0.0, 0.0, 1.5, 0.0]}
+     0.94391 EM 0.9402 CER 0.0230 {'K': 600, 'lam': 4, 'T': 0.7, 'mu': 0.3, 'lam_pos': {'N': 3, 'V': 10, 'ADJ': 3}, 'bias': [-1.5, 0.0, 0.0, 1.5, 0.0]}
+wug       base obj 0.52003 (EM 0.4822) -> best obj 0.52003 (EM 0.4822 CER 0.1398) d_obj=+0.00000 cfg={'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0, 'lam_pos': {'N': 1, 'V': 1}, 'bias': [0.0, -0.25, 0.25, 0.5, 0.0]}
+     0.52003 EM 0.4822 CER 0.1398 {'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0, 'lam_pos': {'N': 1, 'V': 1}, 'bias': [0.0, -0.25, 0.25, 0.5, 0.0]}
+     0.51989 EM 0.4821 CER 0.1398 {'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0, 'lam_pos': {'N': 1, 'V': 3}, 'bias': [0.0, -0.25, 0.25, 0.5, 0.0]}
+     0.51916 EM 0.4813 CER 0.1402 {'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0, 'lam_pos': {'N': 1, 'V': 1.5}, 'bias': [0.0, -0.25, 0.25, 0.5, 0.0]}
+     0.51892 EM 0.4810 CER 0.1399 {'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0, 'lam_pos': {'N': 1.5, 'V': 1}, 'bias': [0.0, -0.25, 0.25, 0.5, 0.0]}
+     0.51877 EM 0.4809 CER 0.1399 {'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0, 'lam_pos': {'N': 1.5, 'V': 3}, 'bias': [0.0, -0.25, 0.25, 0.5, 0.0]}
+     0.51876 EM 0.4809 CER 0.1401 {'K': 600, 'lam': 1, 'joint': False, 'mu': 1.0, 'lam_pos': {'N': 1, 'V': 6}, 'bias': [0.0, -0.25, 0.25, 0.5, 0.0]}
+unseen    base obj 0.44036 (EM 0.3934) -> best obj 0.44036 (EM 0.3934 CER 0.1369) d_obj=+0.00000 cfg={'K': 'both', 'joint': False, 'mu': 0.6, 'lam_pos': {'ADJ': 2}, 'eps': 0.1, 'bias': [0.0, 0.0, 0.0, 0.0, 0.0]}
+     0.44036 EM 0.3934 CER 0.1369 {'K': 'both', 'joint': False, 'mu': 0.6, 'lam_pos': {'ADJ': 2}, 'eps': 0.1, 'bias': [0.0, 0.0, 0.0, 0.0, 0.0]}
+     0.43538 EM 0.3880 CER 0.1378 {'K': 'both', 'joint': False, 'mu': 0.6, 'lam_pos': {'ADJ': 3}, 'eps': 0.1, 'bias': [0.0, 0.0, 0.0, 0.0, 0.0]}
+     0.43405 EM 0.3866 CER 0.1386 {'K': 'both', 'joint': False, 'mu': 0.6, 'lam_pos': {'ADJ': 1.5}, 'eps': 0.1, 'bias': [0.0, 0.0, 0.0, 0.0, 0.0]}
+     0.43271 EM 0.3850 CER 0.1382 {'K': 'both', 'joint': False, 'mu': 0.6, 'lam_pos': {'ADJ': 4}, 'eps': 0.1, 'bias': [0.0, 0.0, 0.0, 0.0, 0.0]}
+     0.43170 EM 0.3841 CER 0.1395 {'K': 'both', 'joint': False, 'mu': 0.6, 'lam_pos': {'ADJ': 1}, 'eps': 0.1, 'bias': [0.0, 0.0, 0.0, 0.0, 0.0]}
+     0.43065 EM 0.3828 CER 0.1387 {'K': 'both', 'joint': False, 'mu': 0.6, 'lam_pos': {'ADJ': 6}, 'eps': 0.1, 'bias': [0.0, 0.0, 0.0, 0.0, 0.0]}
+FINAL (all stages)                 score 0.64920 | transfer: EM 0.9541 CER 0.0223 complete: EM 0.9404 CER 0.0229 wug: EM 0.4822 CER 0.1398 unseen: EM 0.3934 CER 0.1369
+FINAL without per-POS lam          score 0.64907 | transfer: EM 0.9539 CER 0.0224 complete: EM 0.9399 CER 0.0230 wug: EM 0.4822 CER 0.1398 unseen: EM 0.3934 CER 0.1369
+FINAL without per-POS lam and without class bias score 0.64573 | transfer: EM 0.9538 CER 0.0225 complete: EM 0.9384 CER 0.0236 wug: EM 0.4740 CER 0.1412 unseen: EM 0.3934 CER 0.1369
+
+=== BOOTSTRAP over lemmas (1000 resamples) of delta objective (final - baseline) per segment
+transfer  d_obj +0.00352  95% CI [+0.00191, +0.00521]  P(d<=0)=0.000  lemmas=8973
+complete  d_obj +0.00432  95% CI [+0.00156, +0.00710]  P(d<=0)=0.000  lemmas=5030
+wug       d_obj +0.01358  95% CI [-0.00105, +0.02693]  P(d<=0)=0.036  lemmas=500
+unseen    d_obj +0.01348  95% CI [+0.00632, +0.02131]  P(d<=0)=0.001  lemmas=250
+
+=== SPLIT-HALF CHECK: pick best cfg of the full grid (stages A-E choices) on lemma-half 1, evaluate on half 2 (and vice versa)
+transfer  grid: tuned-on-h1 -> h2: +0.00086 (cfg {'K': 600, 'lam': 10}) | tuned-on-h2 -> h1: +0.00128 (cfg {'K': 600, 'lam': 10, 'joint': False, 'T': 0.7})
+transfer  bias: fit-on-h1 -> h2: +0.00014 (in-sample h1 +0.00014, bias [-0.5, 0.25, 0.25, 0.0, 0.0]) | fit-on-h2 -> h1: -0.00014 (in-sample h2 +0.00042, bias [-1.0, 0.0, 1.0, 0.5, 0.0])
+complete  grid: tuned-on-h1 -> h2: +0.00032 (cfg {'K': 600, 'lam': 3, 'T': 1.5, 'sel': 'soft'}) | tuned-on-h2 -> h1: +0.00187 (cfg {'K': 600, 'lam': 4, 'T': 0.7})
+complete  bias: fit-on-h1 -> h2: +0.00062 (in-sample h1 +0.00156, bias [-1.5, 0.0, 0.0, 1.0, 0.0]) | fit-on-h2 -> h1: +0.00029 (in-sample h2 +0.00214, bias [-1.0, -1.5, -1.5, 0.5, 0.0])
+wug       grid: tuned-on-h1 -> h2: -0.00621 (cfg {'joint': False, 'T': 0.7, 'sel': 'soft'}) | tuned-on-h2 -> h1: -0.00083 (cfg {'K': 600, 'lam': 1.5, 'sel': 'soft'})
+wug       bias: fit-on-h1 -> h2: +0.00113 (in-sample h1 +0.00029, bias [0.0, 0.0, 0.0, 0.5, 0.0]) | fit-on-h2 -> h1: -0.00640 (in-sample h2 +0.01777, bias [0.0, -0.5, 0.25, 1.0, 0.0])
+unseen    grid: tuned-on-h1 -> h2: +0.00731 (cfg {'K': 600, 'joint': False}) | tuned-on-h2 -> h1: +0.00582 (cfg {'K': 600, 'joint': False})
+unseen    bias: fit-on-h1 -> h2: -0.00562 (in-sample h1 +0.00013, bias [0.0, 0.25, 0.0, 0.0, 0.0]) | fit-on-h2 -> h1: -0.00025 (in-sample h2 +0.00000, bias [0.0, 0.0, 0.0, 0.0, -1.5])
+
+saved /Users/md.hamidhosen/Documents/Kaggle/Cyrillic Morphological Induction Grand Challenge 2026/runs/exp/decision-tuning/results_lim0.json; total time 69s

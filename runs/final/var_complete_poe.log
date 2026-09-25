@@ -1,0 +1,26 @@
+ctx_clean: 324800 -> 319132 context rows
+priors ready 3s
+/Users/md.hamidhosen/.pyenv/versions/3.12.11/lib/python3.12/site-packages/torch/nn/modules/transformer.py:145: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = TransformerEncoder(
+loaded 3 local models on mps
+candidates ready 6s
+    local beam cache: 0 decoded, 18000 reused
+  [transfer] local beams 18000 rows x 3 models in 0s
+  transfer: pooling changed 12 rows
+  transfer: 18000 rows decided
+/Users/md.hamidhosen/.pyenv/versions/3.12.11/lib/python3.12/site-packages/torch/nn/modules/activation.py:1337: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+    local beam cache: 77 decoded, 14923 reused
+  [complete] local beams 15000 rows x 3 models in 5s
+  complete: pooling changed 22 rows
+  complete: 15000 rows decided
+    local beam cache: 0 decoded, 18260 reused
+  [wug] local beams 18260 rows x 3 models in 0s
+  wug: pooling changed 78 rows
+  wug: 18260 rows decided
+    local beam cache: 0 decoded, 8740 reused
+  [unseen] local beams 8740 rows x 3 models in 0s
+  unseen: pooling changed 147 rows
+  unseen: 8740 rows decided
+fixes applied: {'B': 70, 'A': 3, 'C': 3} {'transfer': 0, 'complete': 2, 'wug': 10, 'unseen': 64}
+wrote runs/final/var_complete_poe.csv 60000 33s

@@ -1,6 +1,6 @@
 # HANDOFF — Cyrillic Morphological Induction Grand Challenge 2026
 
-Last updated: 2026-09-24 ~20:15 UTC. Deadline: **2026-09-26 04:00 UTC**. 5 submissions per UTC day.
+Last updated: 2026-09-25 ~04:10 UTC. Deadline: **2026-09-26 04:00 UTC**. 5 submissions per UTC day.
 
 ## Leaderboard (verified 2026-09-24 ~18:40 UTC)
 | # | Team | Public |
@@ -10,6 +10,13 @@ Last updated: 2026-09-24 ~20:15 UTC. Deadline: **2026-09-26 04:00 UTC**. 5 submi
 | 3 | FOYSAL | 0.69435 |
 | 8 | **Md. Hamid Hosen** | **0.68003** (`runs/final/var_complete_poe.csv`) |
 | 10 | keeaitec | 0.67077 |
+
+## 2026-09-25 holdout checks
+- When the stress class is right, EM is .988 transfer / .990 complete / .977 wug / .964 unseen.
+  Remaining error is almost all the stress-class decision for new lemmas (class right: wug .505, unseen .416).
+- KAM is not weaker on holdout (wug KAM .519 vs SEV .474), so the KAM-heavy test mix does not explain the gap.
+- Test wug cells are sampled uniformly (seed cell excluded in SEV only); no selection signal.
+- v4 (5-model pooling) auto-builds and submits via `runs/final/auto_v4.sh` after `runs/loc_full_s5` finishes (~08:30 UTC).
 
 ## Metric (measured via probes)
 `Score = 0.9*WeightedEM + 0.1*(1-WeightedCER)`; row weights by segment: transfer 1, complete 2, wug 3, unseen 4

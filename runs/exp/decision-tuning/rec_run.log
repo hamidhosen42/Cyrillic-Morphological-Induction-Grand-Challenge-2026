@@ -1,0 +1,43 @@
+loaded splits+cands in 7s
+built tables in 170s
+
+=== DIAGNOSTICS (n per segment: transfer=13084 rows/8973 lemmas, complete=6023 rows/5030 lemmas, wug=6528 rows/500 lemmas, unseen=7176 rows/250 lemmas)
+transfer  oracle(gold in beam) 0.9751 | oracle-class then argmax 0.9668 | NN-only EM 0.4458 | baseline EM 0.9503 class-acc 0.9689 | baseline errors: stress-wrong 3.1% of rows, segmental-only 1.9% of rows
+complete  oracle(gold in beam) 0.9801 | oracle-class then argmax 0.9726 | NN-only EM 0.4121 | baseline EM 0.9357 class-acc 0.9515 | baseline errors: stress-wrong 4.8% of rows, segmental-only 1.6% of rows
+wug       oracle(gold in beam) 0.9773 | oracle-class then argmax 0.9606 | NN-only EM 0.4257 | baseline EM 0.4675 class-acc 0.4838 | baseline errors: stress-wrong 51.6% of rows, segmental-only 1.6% of rows
+unseen    oracle(gold in beam) 0.9654 | oracle-class then argmax 0.9309 | NN-only EM 0.3654 | baseline EM 0.3788 class-acc 0.4104 | baseline errors: stress-wrong 59.0% of rows, segmental-only 3.2% of rows
+BASELINE lam=2 joint K=300                   score 0.63898 | transfer: EM 0.9503 CER 0.0231 complete: EM 0.9357 CER 0.0242 wug: EM 0.4675 CER 0.1432 unseen: EM 0.3788 CER 0.1401
+
+=== SINGLE-FACTOR comparisons vs baseline (per-segment obj = 0.9EM+0.1(1-CER); d = new - base)
+K=300 per-row              | transfer d_obj +0.00014 (EM 0.9505) | complete d_obj +0.00000 (EM 0.9357) | wug d_obj -0.00119 (EM 0.4663) | unseen d_obj +0.00426 (EM 0.3834)
+K=600                      | transfer d_obj +0.00071 (EM 0.9511) | complete d_obj +0.00092 (EM 0.9367) | wug d_obj +0.00056 (EM 0.4681) | unseen d_obj -0.00013 (EM 0.3786)
+K=600 per-row              | transfer d_obj +0.00071 (EM 0.9511) | complete d_obj +0.00092 (EM 0.9367) | wug d_obj -0.00033 (EM 0.4672) | unseen d_obj +0.00656 (EM 0.3859)
+K=both                     | transfer d_obj +0.00050 (EM 0.9509) | complete d_obj +0.00062 (EM 0.9364) | wug d_obj +0.00196 (EM 0.4697) | unseen d_obj +0.00012 (EM 0.3789)
+mu=0.3                     | transfer d_obj +0.00097 (EM 0.9514) | complete d_obj +0.00060 (EM 0.9364) | wug d_obj +0.00085 (EM 0.4684) | unseen d_obj +0.00476 (EM 0.3839)
+mu=0.6                     | transfer d_obj +0.00118 (EM 0.9516) | complete d_obj +0.00075 (EM 0.9366) | wug d_obj +0.00101 (EM 0.4686) | unseen d_obj +0.00617 (EM 0.3855)
+mu=1.0                     | transfer d_obj +0.00131 (EM 0.9518) | complete d_obj -0.00001 (EM 0.9357) | wug d_obj +0.00130 (EM 0.4689) | unseen d_obj +0.00514 (EM 0.3843)
+K=600 mu=0.6               | transfer d_obj +0.00189 (EM 0.9524) | complete d_obj +0.00167 (EM 0.9376) | wug d_obj +0.00157 (EM 0.4692) | unseen d_obj +0.00590 (EM 0.3852)
+K=600 per-row mu=0.6       | transfer d_obj +0.00189 (EM 0.9524) | complete d_obj +0.00167 (EM 0.9376) | wug d_obj +0.00068 (EM 0.4683) | unseen d_obj +0.01284 (EM 0.3927)
+lam=1                      | transfer d_obj -0.00169 (EM 0.9485) | complete d_obj -0.00245 (EM 0.9331) | wug d_obj -0.00606 (EM 0.4609) | unseen d_obj +0.00007 (EM 0.3789)
+lam=3                      | transfer d_obj +0.00021 (EM 0.9506) | complete d_obj -0.00123 (EM 0.9344) | wug d_obj -0.00261 (EM 0.4648) | unseen d_obj +0.00105 (EM 0.3799)
+lam=4                      | transfer d_obj +0.00021 (EM 0.9506) | complete d_obj -0.00153 (EM 0.9341) | wug d_obj -0.00391 (EM 0.4634) | unseen d_obj +0.00210 (EM 0.3810)
+prior only (lam=1000)      | transfer d_obj -0.00034 (EM 0.9499) | complete d_obj -0.00581 (EM 0.9294) | wug d_obj -0.01080 (EM 0.4559) | unseen d_obj -0.00638 (EM 0.3718)
+sel=mbr                    | transfer d_obj +0.00007 (EM 0.9504) | complete d_obj +0.00000 (EM 0.9357) | wug d_obj +0.00073 (EM 0.4683) | unseen d_obj -0.00153 (EM 0.3771)
+sel=soft                   | transfer d_obj +0.00007 (EM 0.9504) | complete d_obj +0.00000 (EM 0.9357) | wug d_obj +0.00044 (EM 0.4680) | unseen d_obj -0.00050 (EM 0.3782)
+sel=hard_segmarg           | transfer d_obj -0.02134 (EM 0.9269) | complete d_obj -0.01714 (EM 0.9170) | wug d_obj -0.00940 (EM 0.4571) | unseen d_obj -0.00905 (EM 0.3687)
+sel=prodmarg               | transfer d_obj -0.02148 (EM 0.9268) | complete d_obj -0.01760 (EM 0.9165) | wug d_obj -0.01030 (EM 0.4560) | unseen d_obj -0.01168 (EM 0.3657)
+fallback=next              | transfer d_obj +0.00000 (EM 0.9503) | complete d_obj +0.00000 (EM 0.9357) | wug d_obj +0.00000 (EM 0.4675) | unseen d_obj +0.00000 (EM 0.3788)
+T=0.7                      | transfer d_obj -0.00064 (EM 0.9496) | complete d_obj -0.00076 (EM 0.9349) | wug d_obj -0.00320 (EM 0.4640) | unseen d_obj +0.00009 (EM 0.3789)
+T=1.5                      | transfer d_obj +0.00021 (EM 0.9506) | complete d_obj -0.00139 (EM 0.9343) | wug d_obj -0.00530 (EM 0.4619) | unseen d_obj +0.00051 (EM 0.3793)
+
+=== RECOMMENDED configs (few parameters) vs baseline, with lemma-bootstrap CI and per-lemma-half consistency
+R1: mu=0.6 only                              score 0.64126 | transfer: EM 0.9516 CER 0.0231 complete: EM 0.9366 CER 0.0242 wug: EM 0.4686 CER 0.1428 unseen: EM 0.3855 CER 0.1386
+      d_obj per seg: transfer +0.00118 [+0.00020,+0.00221] (h1 +0.00083 / h2 +0.00153) complete +0.00075 [-0.00063,+0.00225] (h1 +0.00091 / h2 +0.00059) wug +0.00101 [-0.00012,+0.00213] (h1 +0.00060 / h2 +0.00141) unseen +0.00617 [+0.00299,+0.00970] (h1 +0.00203 / h2 +0.01043) | score delta +0.00228
+R2: mu=0.6 + per-row for unseen              score 0.64234 | transfer: EM 0.9516 CER 0.0231 complete: EM 0.9366 CER 0.0242 wug: EM 0.4686 CER 0.1428 unseen: EM 0.3901 CER 0.1375
+      d_obj per seg: transfer +0.00118 [+0.00014,+0.00224] (h1 +0.00083 / h2 +0.00153) complete +0.00075 [-0.00062,+0.00225] (h1 +0.00091 / h2 +0.00059) wug +0.00101 [-0.00010,+0.00214] (h1 +0.00060 / h2 +0.00141) unseen +0.01041 [+0.00282,+0.01828] (h1 +0.00560 / h2 +0.01538) | score delta +0.00336
+R3: K=600 + mu=0.6                           score 0.64171 | transfer: EM 0.9524 CER 0.0228 complete: EM 0.9376 CER 0.0240 wug: EM 0.4692 CER 0.1427 unseen: EM 0.3852 CER 0.1387
+      d_obj per seg: transfer +0.00189 [+0.00069,+0.00324] (h1 +0.00182 / h2 +0.00196) complete +0.00167 [-0.00096,+0.00441] (h1 +0.00183 / h2 +0.00150) wug +0.00157 [-0.00312,+0.00647] (h1 -0.00055 / h2 +0.00367) unseen +0.00590 [+0.00181,+0.01026] (h1 +0.00127 / h2 +0.01069) | score delta +0.00273
+R4: K=600 + mu=0.6 + per-row unseen          score 0.64347 | transfer: EM 0.9524 CER 0.0228 complete: EM 0.9376 CER 0.0240 wug: EM 0.4692 CER 0.1427 unseen: EM 0.3927 CER 0.1371
+      d_obj per seg: transfer +0.00189 [+0.00063,+0.00324] (h1 +0.00182 / h2 +0.00196) complete +0.00167 [-0.00090,+0.00440] (h1 +0.00183 / h2 +0.00150) wug +0.00157 [-0.00337,+0.00646] (h1 -0.00055 / h2 +0.00367) unseen +0.01284 [+0.00539,+0.02064] (h1 +0.00785 / h2 +0.01799) | score delta +0.00449
+R5: R4 + lam=10 transfer, lam=4 complete     score 0.64355 | transfer: EM 0.9529 CER 0.0226 complete: EM 0.9376 CER 0.0237 wug: EM 0.4692 CER 0.1427 unseen: EM 0.3927 CER 0.1371
+      d_obj per seg: transfer +0.00239 [+0.00093,+0.00390] (h1 +0.00240 / h2 +0.00239) complete +0.00170 [-0.00123,+0.00450] (h1 +0.00248 / h2 +0.00092) wug +0.00157 [-0.00311,+0.00637] (h1 -0.00055 / h2 +0.00367) unseen +0.01284 [+0.00561,+0.02064] (h1 +0.00785 / h2 +0.01799) | score delta +0.00457

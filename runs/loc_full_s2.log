@@ -4,19 +4,26 @@ device mps train rows 319943 {'dev_sample': 1500}
 params 4.9M steps/epoch 2499
 /Users/md.hamidhosen/.pyenv/versions/3.12.11/lib/python3.12/site-packages/torch/nn/modules/activation.py:1337: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
   key_padding_mask = F._canonical_mask(
-ep 0 step 200/2499 loss 3.7547 139s
-ep 0 step 400/2499 loss 3.0952 303s
-ep 0 step 600/2499 loss 2.7211 480s
-ep 0 step 800/2499 loss 2.4596 682s
-ep 0 step 1000/2499 loss 2.2580 862s
-ep 0 step 1200/2499 loss 2.0979 1059s
-ep 0 step 1400/2499 loss 1.9711 1259s
-ep 0 step 1600/2499 loss 1.8656 1456s
-ep 0 step 1800/2499 loss 1.7751 1644s
-ep 0 step 2000/2499 loss 1.6961 1853s
-ep 0 step 2200/2499 loss 1.6278 2054s
-ep 0 step 2400/2499 loss 1.5652 2248s
-=== epoch 0 loss 1.5380 time 2367s  (oracle-class EM, paradigm-class EM): {'dev_sample': (0.3713, 0.364)}
-ep 1 step 2600/2499 loss 0.8340 104s
-ep 1 step 2800/2499 loss 0.8123 299s
-ep 1 step 3000/2499 loss 0.8000 516s
+ep 0 step 200/2499 loss 3.7555 103s
+ep 0 step 400/2499 loss 3.0922 227s
+ep 0 step 600/2499 loss 2.7216 369s
+ep 0 step 800/2499 loss 2.4608 555s
+ep 0 step 1000/2499 loss 2.2541 766s
+ep 0 step 1200/2499 loss 2.0904 975s
+ep 0 step 1400/2499 loss 1.9599 1113s
+ep 0 step 1600/2499 loss 1.8523 1263s
+ep 0 step 1800/2499 loss 1.7595 1401s
+ep 0 step 2000/2499 loss 1.6780 1645s
+ep 0 step 2200/2499 loss 1.6063 1986s
+ep 0 step 2400/2499 loss 1.5415 2655s
+=== epoch 0 loss 1.5134 time 2835s  (oracle-class EM, paradigm-class EM): {'dev_sample': (0.4847, 0.4707)}
+ep 1 step 2600/2499 loss 0.7920 99s
+ep 1 step 2800/2499 loss 0.7675 223s
+ep 1 step 3000/2499 loss 0.7565 325s
+ep 1 step 3200/2499 loss 0.7423 429s
+ep 1 step 3400/2499 loss 0.7292 536s
+ep 1 step 3600/2499 loss 0.7168 633s
+ep 1 step 3800/2499 loss 0.7053 736s
+ep 1 step 4000/2499 loss 0.6957 836s
+ep 1 step 4200/2499 loss 0.6857 935s
+ep 1 step 4400/2499 loss 0.6774 1047s

@@ -1,0 +1,29 @@
+{
+ "stages": {},
+ "baseline": 0.63898,
+ "baseline_per": {
+  "transfer": [
+   0.9503,
+   0.0231
+  ],
+  "complete": [
+   0.9357,
+   0.0242
+  ],
+  "wug": [
+   0.4675,
+   0.1432
+  ],
+  "unseen": [
+   0.3788,
+   0.1401
+  ]
+ },
+ "recommended": {
+  "R1: mu=0.6 only": 0.64126,
+  "R2: mu=0.6 + per-row for unseen": 0.64234,
+  "R3: K=600 + mu=0.6": 0.64171,
+  "R4: K=600 + mu=0.6 + per-row unseen": 0.64347,
+  "R5: R4 + lam=10 transfer, lam=4 complete": 0.64355
+ }
+}

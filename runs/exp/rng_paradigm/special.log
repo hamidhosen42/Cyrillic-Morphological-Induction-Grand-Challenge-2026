@@ -1,0 +1,44 @@
+par largest z:
+     kind fam    seed  K_or_s    pat_or_o          ord    purity         z
+540   par  py  271828      35      rb+rnd  rank_global  0.183158  5.024480
+558   par  py  271828      35      rnd+rb  rank_global  0.183158  5.024480
+271   par  py  654321      32      rnd+rb    alpha_ADJ  0.163636  4.609291
+1797  par  py    8888      47  floor_s4o1      alpha_N  0.182986  4.592972
+2124  par  py      31      51      rb+rnd  rank_global  0.214737  4.512833
+yat most negative z:
+   kind fam       seed  K_or_s pat_or_o          ord  purity         z
+21  yat  py         43       7        0  rank_global    -1.0 -4.437662
+16  yat  py  123456789       6        1    alpha_ADJ    -1.0 -4.095290
+18  yat  py   20240101       6        3     rank_ADJ    -1.0 -3.772173
+32  yat  py      54321       8        4      alpha_V    -1.0 -3.716449
+27  yat  py       2024       7        6     rank_ADJ    -1.0 -3.698615
+yat_pat most negative z:
+         kind fam        seed  K_or_s pat_or_o        ord  purity         z
+3335  yat_pat  py           0      63   rnd+rb     rank_N    -1.0 -4.107287
+2133  yat_pat  py        8888      51   rb+rnd  alpha_ADJ    -1.0 -3.745327
+2151  yat_pat  py        8888      51   rnd+rb  alpha_ADJ    -1.0 -3.720199
+1252  yat_pat  py  3735928559      42   rnd+rb   rank_ADJ    -1.0 -3.660964
+76    yat_pat  py  4294967296      30   rnd+rb    alpha_N    -1.0 -3.578068
+n logged hits 0 time 39 s
+par largest z:
+     kind fam       seed  K_or_s    pat_or_o       ord    purity         z
+3165  par  np  123456789      61  floor_s2o1   alpha_N  0.208668  4.794090
+952   par  np     123456      39      rb+rnd  rank_rev  0.199640  4.687866
+1041  par  np         17      40      rb+rnd    rank_N  0.172131  4.608550
+1059  par  np         17      40      rnd+rb    rank_N  0.172131  4.608550
+2873  par  np         43      58  floor_s4o0    rank_N  0.200000  4.312460
+yat most negative z:
+   kind fam   seed  K_or_s pat_or_o       ord  purity         z
+15  yat  np      0       6        0   alpha_N    -1.0 -3.705258
+30  yat  np  12345       8        2    rank_V    -1.0 -3.520876
+32  yat  np   1000       8        4  rank_ADJ    -1.0 -3.520254
+34  yat  np  54321       8        6    rank_N    -1.0 -3.488295
+26  yat  np      0       7        5  rank_rev    -1.0 -3.475026
+yat_pat most negative z:
+        kind fam     seed  K_or_s pat_or_o          ord  purity         z
+74   yat_pat  np      666      30   rnd+rb      alpha_V    -1.0 -4.148139
+644  yat_pat  np       42      36   rb+rnd       rank_N    -1.0 -3.831714
+62   yat_pat  np       37      30   rnd+rb  rank_global    -1.0 -3.830633
+46   yat_pat  np       37      30   rb+rnd     rank_ADJ    -1.0 -3.787366
+545  yat_pat  np  2026001      35   rb+rnd       rank_N    -1.0 -3.636384
+n logged hits 0 time 35 s

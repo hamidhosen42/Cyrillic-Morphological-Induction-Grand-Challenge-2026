@@ -1,0 +1,6 @@
+train sorted by canonical key: True violations 0
+pyshuf 2000 t=63s best (0.097619682960945, (780, 20000))
+pyshuf 4000 t=112s best (-0.13042642252659523, (2456, 20000))
+pyshuf 6000 t=158s best (0.14396445076534264, (5303, 20000))
+pyshuf 8000 t=213s best (0.14396445076534264, (5303, 20000))
+pyshuf done; best |rho| (0.14396445076534264, (5303, 20000)) null sd 0.03162277660168379 hits [] time 270
