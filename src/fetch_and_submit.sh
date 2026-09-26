@@ -2,7 +2,7 @@
 # Usage: src/fetch_and_submit.sh <kernel-slug> <run-name> [lam] [--submit "message"]
 set -e
 cd "$(dirname "$0")/.."
-export KAGGLE_API_TOKEN=$(head -1 token.txt | tr -d '[:space:]')
+# Authenticate with the Kaggle CLI's existing configuration or environment.
 K=$1; RUN=$2; LAM=${3:-1.0}
 mkdir -p runs/$RUN
 kaggle kernels output hosen42/$K -p runs/$RUN

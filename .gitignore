@@ -1,5 +1,5 @@
 # secrets
-token.txt
+*token*
 *.token
 .kaggle/
 

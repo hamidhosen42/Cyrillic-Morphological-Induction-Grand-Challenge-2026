@@ -10,7 +10,7 @@ python3 src/preflight.py runs/final/sub_final_v4.csv runs/final/var_complete_poe
 grep -q "PREFLIGHT PASSED" runs/final/preflight_v4.log || exit 1
 # wait for a UTC day with free quota (only submits once)
 while [ "$(date -u +%Y%m%d)" = "20260924" ]; do sleep 120; done
-export KAGGLE_API_TOKEN=$(head -1 token.txt | tr -d '[:space:]')
+# Authenticate with the Kaggle CLI's existing configuration or environment.
 kaggle competitions submit -c cyrillic-morphological-induction-grand-challenge -f runs/final/sub_final_v4.csv \
   -m "final v4: complete-PoE config + 5-model local pooling (w 0.5) + ctx_clean + post-fixes" > runs/final/submit_v4.log 2>&1
 sleep 90; kaggle competitions submissions -c cyrillic-morphological-induction-grand-challenge 2>&1 | sed -n '3p' >> runs/final/submit_v4.log
