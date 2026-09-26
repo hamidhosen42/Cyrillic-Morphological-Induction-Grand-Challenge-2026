@@ -1,0 +1,41 @@
+ctx_clean: 286296 -> 281176 context rows
+leak: 1101 unexplained noise copies -> 199 rows matched (ctx=1) lemma-matched {'row': 2, 'ctx_only': 178}
+priors ready 13s
+/Users/md.hamidhosen/.pyenv/versions/3.12.11/lib/python3.12/site-packages/torch/nn/modules/transformer.py:145: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = TransformerEncoder(
+loaded 2 local models on mps
+candidates ready 22s
+BASELINE (cur5 lam2 joint K5=600 mu=0): (np.float64(0.65003), {'transfer': (np.float64(0.9541), np.float64(0.022)), 'complete': (np.float64(0.9414), np.float64(0.0227)), 'wug': (np.float64(0.4804), np.float64(0.1397)), 'unseen': (np.float64(0.3988), np.float64(0.1357))})
+CONFIG {"transfer": {"rep": "cur5", "lam": 2.0, "joint": true}, "complete": {"rep": "poe", "lam": 5.0, "joint": true, "lam5": 1.0}, "wug": {"rep": "3way", "lam": 5.0, "joint": true}, "unseen": {"rep": "cur5", "lam": 2.0, "joint": false}} mu 0.6 -> (np.float64(0.66576), {'transfer': (np.float64(0.9554), np.float64(0.0219)), 'complete': (np.float64(0.9515), np.float64(0.0199)), 'wug': (np.float64(0.5072), np.float64(0.1331)), 'unseen': (np.float64(0.4146), np.float64(0.1326))})
+DELTA weighted score: +0.01573
+    local beam cache: 0 decoded, 13084 reused
+  [transfer] local beams 13084 rows x 2 models in 0s
+   transfer: no-pool EM 0.9554 w0.5:0.9587
+    local beam cache: 0 decoded, 6023 reused
+  [complete] local beams 6023 rows x 2 models in 0s
+   complete: no-pool EM 0.9515 w0.5:0.9519
+/Users/md.hamidhosen/.pyenv/versions/3.12.11/lib/python3.12/site-packages/torch/nn/modules/activation.py:1337: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+    local beam cache: 21 decoded, 6507 reused
+  [wug] local beams 6528 rows x 2 models in 2s
+   wug: no-pool EM 0.5072 w0.5:0.5103
+    local beam cache: 59 decoded, 7117 reused
+  [unseen] local beams 7176 rows x 2 models in 2s
+   unseen: no-pool EM 0.4146 w0.5:0.4183
+POOLED w_loc=0.5 (np.float64(0.6682), {'transfer': (np.float64(0.9587), np.float64(0.0215)), 'complete': (np.float64(0.9519), np.float64(0.0199)), 'wug': (np.float64(0.5103), np.float64(0.1324)), 'unseen': (np.float64(0.4183), np.float64(0.1322))})
+    local beam cache: 0 decoded, 13084 reused
+  [transfer] local beams 13084 rows x 2 models in 0s
+    local beam cache: 0 decoded, 6023 reused
+  [complete] local beams 6023 rows x 2 models in 0s
+    local beam cache: 0 decoded, 6528 reused
+  [wug] local beams 6528 rows x 2 models in 0s
+    local beam cache: 0 decoded, 7176 reused
+  [unseen] local beams 7176 rows x 2 models in 0s
+BEFORE FIXES (np.float64(0.6682), {'transfer': (np.float64(0.9587), np.float64(0.0215)), 'complete': (np.float64(0.9519), np.float64(0.0199)), 'wug': (np.float64(0.5103), np.float64(0.1324)), 'unseen': (np.float64(0.4183), np.float64(0.1322))})
+AFTER FIXES BAC {'B': 94, 'A': 51, 'C': 28} (np.float64(0.67093), {'transfer': (np.float64(0.96), np.float64(0.0214)), 'complete': (np.float64(0.9547), np.float64(0.0197)), 'wug': (np.float64(0.5118), np.float64(0.1322)), 'unseen': (np.float64(0.4246), np.float64(0.1311))})
+AFTER LEAK OVERRIDE (np.float64(0.67427), {'transfer': (np.float64(0.9599), np.float64(0.0214)), 'complete': (np.float64(0.9547), np.float64(0.0197)), 'wug': (np.float64(0.5181), np.float64(0.1307)), 'unseen': (np.float64(0.4291), np.float64(0.1302))})
+   leak override changed {'transfer': 1, 'wug': 44, 'unseen': 38} fixed {'transfer': 0, 'wug': 41, 'unseen': 35} broke {'transfer': 1, 'wug': 0, 'unseen': 3}
+   transfer: fixed 17 broke 1
+   complete: fixed 17 broke 0
+   wug: fixed 51 broke 0
+   unseen: fixed 80 broke 3

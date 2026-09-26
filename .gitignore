@@ -17,3 +17,6 @@ runs/local/
 __pycache__/
 *.pyc
 .DS_Store
+
+# chat backup (contains full session history)
+chat_backup/

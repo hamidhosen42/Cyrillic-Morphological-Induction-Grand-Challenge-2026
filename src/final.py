@@ -59,6 +59,10 @@ p.add_argument('--resc_temp', type=float, default=1.0, help='temperature on resc
 p.add_argument('--clf_w', default='0', help='comma list of weights for the classifier expert (dev: all evaluated)')
 p.add_argument('--leak', type=int, default=0, help='1: use the publicly disclosed noise-copy leak (forum topic 743193): overrides + prior observations')
 p.add_argument('--leak_ctx', type=int, default=1, help='with --leak: also add the matched forms to the paradigm-prior observations')
+p.add_argument('--leak_lem', default='', help='thr,margin: tie copies not matched by pools to a lemma by spelling (ctx; override if the cell is a row)')
+p.add_argument('--cache_tag', default='', help='suffix for the local-beam cache file (parallel runs)')
+p.add_argument('--obs_cfg', default='', help='JSON {rep,lam,joint,lam5}: decision config for unseen lemmas that received leaked observations')
+p.add_argument('--leak_stem', type=int, default=0, help='with --leak: also give matched forms to the local models as context (re-decodes those lemmas)')
 args = p.parse_args()
 cfg = BEST_CFG if args.cfg == 'best' else BASE_CFG if args.cfg == 'base' else json.loads(args.cfg)
 t0 = time.time()
@@ -115,6 +119,7 @@ for l, f, d, fm in zip(known.lemma_ru, known.feats, known.dialect, known.form_vv
 # dialect. Copies that match no released row are matched to the unique unreleased row (same feats, dialect) whose
 # candidate pool contains the same unaccented string.
 LEAK = {}
+LEAK_STEM_LEMMAS = set()
 if args.leak:
     _fl = pd.read_csv(os.path.join(ROOT, 'runs/exp/noise/sub_flags_traindev.csv'))
     _bad = set(zip(_fl.lemma_ru[_fl.sub2], _fl.feats[_fl.sub2], _fl.dialect[_fl.sub2], _fl.form_vvz[_fl.sub2]))
@@ -136,9 +141,35 @@ if args.leak:
         _h = _idx.get((_r.feats, _r.dialect, _r.form_vvz.replace(ACC, '')), set())
         if len(_h) == 1: _cand[next(iter(_h))].add(_r.form_vvz)
     LEAK = {k: next(iter(v)) for k, v in _cand.items() if len(v) == 1}
+    _nlem = collections.Counter()
+    if args.leak_lem:
+        sys.path.insert(0, os.path.join(ROOT, 'src', 'exp', 'noise'))
+        from noise_detect import canon_form as _cf, canon_lemma as _cl
+        from rapidfuzz import process as _proc, fuzz as _fz
+        _thr, _mg = [float(x) for x in args.leak_lem.split(',')]
+        _lem = pd.concat([x_[['lemma_ru', 'pos']] for x_ in (tr, dv, wug, te)]).drop_duplicates()
+        _byp = {p_: (g.lemma_ru.tolist(), [_cl(x) for x in g.lemma_ru]) for p_, g in _lem.groupby('pos')}
+        _rowkeys = set(k_ for v_ in _idx.values() for k_ in v_)
+        _used = set(f_ for v_ in _cand.values() for f_ in v_)
+        _cand2 = collections.defaultdict(set); _ctx2 = []
+        for _r in _U.itertuples():
+            if _r.form_vvz in _used: continue
+            _nm, _cls = _byp[_r.feats.split(';')[0]]
+            _res = _proc.extract(_cf(_r.form_vvz), _cls, scorer=_fz.ratio, limit=2)
+            if len(_res) < 2 or _res[0][1] < _thr or _res[0][1] - _res[1][1] < _mg: continue
+            _L = _nm[_res[0][2]]
+            if _L == _r.lemma_ru: continue
+            _k = (_L, _r.feats, _r.dialect)
+            if _k in _rowkeys: _cand2[_k].add(_r.form_vvz)
+            else: _ctx2.append((_L, _r.feats, _r.dialect, _r.form_vvz))
+        for _k, _v in _cand2.items():
+            if len(_v) == 1 and _k not in LEAK: LEAK[_k] = next(iter(_v)); _nlem['row'] += 1
+        for _L, _f, _d, _fm in _ctx2: known_map[_L].append((_f, _d, _fm)); _nlem['ctx_only'] += 1
     if args.leak_ctx:
         for (l, f, d), fm in LEAK.items(): known_map[l].append((f, d, fm))
-    print(f'leak: {len(_U)} unexplained noise copies -> {len(LEAK)} rows matched (ctx={args.leak_ctx})', flush=True)
+    if args.leak_stem:
+        for (l, f, d), fm in LEAK.items(): stem_ref_map[l].append((f, d, fm)); LEAK_STEM_LEMMAS.add(l)
+    print(f'leak: {len(_U)} unexplained noise copies -> {len(LEAK)} rows matched (ctx={args.leak_ctx}) lemma-matched {dict(_nlem)}', flush=True)
 
 _CANON = str.maketrans({'о': 'а', 'е': 'е', 'и': 'е', 'ѣ': 'е', 'э': 'е', 'ё': 'е', 'ы': 'е', 'ь': None, 'ъ': None, ACC: None})
 
@@ -324,6 +355,30 @@ def decide(rows, tallies, ll, rep, lam, joint, mu, cons=False, lam5=0.0, clfw=0.
     return out
 
 
+OBS_CFG = json.loads(args.obs_cfg) if args.obs_cfg else None
+OBS_LEMMAS = set()
+if OBS_CFG and LEAK:
+    _uns = set(seg_frames['unseen'][0].lemma_ru)
+    OBS_LEMMAS = {l_ for l_ in _uns if any(True for _ in known_map.get(l_, []))}
+    print(f'obs_cfg: {len(OBS_LEMMAS)} unseen lemmas with leaked observations use {OBS_CFG}', flush=True)
+_decide_base = decide
+
+
+def decide(rows, tallies, ll, rep, lam, joint, mu, cons=False, lam5=0.0, clfw=0.0):
+    A = [i for i, r in enumerate(rows) if r.lemma_ru in OBS_LEMMAS] if OBS_LEMMAS else []
+    if not A:
+        return _decide_base(rows, tallies, ll, rep, lam, joint, mu, cons, lam5, clfw)
+    sA = set(A); B = [i for i in range(len(rows)) if i not in sA]
+    n = len(rows); out = [None] * n; masks = [None] * n; chosen = [0] * n; reps = [rep] * n
+    for idx, (rp, lm, jt, l5) in ((B, (rep, lam, joint, lam5)), (A, (OBS_CFG['rep'], OBS_CFG['lam'], OBS_CFG['joint'], OBS_CFG.get('lam5', 0.0)))):
+        if not idx: continue
+        o = _decide_base([rows[i] for i in idx], [tallies[i] for i in idx], [ll[i] for i in idx], rp, lm, jt, mu, cons, l5, clfw)
+        mk, ch = decide.last[0], decide.last[1]
+        for k, i in enumerate(idx): out[i] = o[k]; masks[i] = mk[k]; chosen[i] = ch[k]; reps[i] = rp
+    decide.last = (masks, chosen, reps)
+    return out
+
+
 def stem_consensus(rows, tallies, ll, masks, cls_, out, mu):
     """Per lemma (per dialect for SEV pleophony lemmas): reference canonical stem prefix from the lemma's
     known forms if any, else the mass-weighted consensus of its rows; restrict each row to class-compatible
@@ -430,11 +485,12 @@ def apply_fixes(segrows, fixes, w_loc):
 
 def build_segrows(seg, rows, tallies, preds, rep, w_loc):
     """pool of class-compatible candidates per row (Kaggle mass + local beams if pooling ran)."""
-    masks, cls_ = decide.last
+    masks, cls_ = decide.last[0], decide.last[1]
+    reps_ = decide.last[2] if len(decide.last) > 2 else None
     lb = getattr(pooled, 'lb', None) if LOCAL else None
     out = []
     for i, r in enumerate(rows):
-        c = cls_[i]; mrep = '3way' if rep == 'poe' else rep
+        c = cls_[i]; rr_ = reps_[i] if reps_ else rep; mrep = '3way' if rr_ == 'poe' else rr_
         pool = collections.defaultdict(float)
         for s_, q in tallies[i].items():
             if (masks[i][s_] >> c) & 1: pool[s_] += q
@@ -466,17 +522,18 @@ if args.models:
     print(f'loaded {len(LOCAL)} local models on {_dev}', flush=True)
 
 
-_LB_CACHE_FN = os.path.join(ROOT, 'runs', 'final', f'lb_cache_{args.mode}_' + '_'.join(os.path.basename(m) for m in args.models.split(',')) + f'_b{args.beam}.pkl') if args.models else None
+_LB_CACHE_FN = os.path.join(ROOT, 'runs', 'final', f'lb_cache_{args.mode}_' + '_'.join(os.path.basename(m) for m in args.models.split(',')) + f'_b{args.beam}{args.cache_tag}.pkl') if args.models else None
+_LB_FRESH = set()
 _LB_CACHE = pickle.load(open(_LB_CACHE_FN, 'rb')) if (_LB_CACHE_FN and os.path.exists(_LB_CACHE_FN)) else {}
 
 
 def local_beams(rows, tokens):
     """Cached wrapper: key = (lemma, feats, dialect, token)."""
     keys = [(r.lemma_ru, r.feats, r.dialect, t) for r, t in zip(rows, tokens)]
-    need = [i for i, (k, t) in enumerate(zip(keys, tokens)) if t is not None and k not in _LB_CACHE]
+    need = [i for i, (k, t) in enumerate(zip(keys, tokens)) if t is not None and (k not in _LB_CACHE or (k[0] in LEAK_STEM_LEMMAS and k not in _LB_FRESH))]
     if need:
         sub = _local_beams([rows[i] for i in need], [tokens[i] for i in need])
-        for i, d in zip(need, sub): _LB_CACHE[keys[i]] = dict(d)
+        for i, d in zip(need, sub): _LB_CACHE[keys[i]] = dict(d); _LB_FRESH.add(keys[i])
         pickle.dump(_LB_CACHE, open(_LB_CACHE_FN, 'wb'))
     print(f'    local beam cache: {len(need)} decoded, {len(rows) - len(need)} reused', flush=True)
     return [dict(_LB_CACHE.get(k, {})) if t is not None else {} for k, t in zip(keys, tokens)]
@@ -510,7 +567,8 @@ def _local_beams(rows, tokens):
 
 def pooled(seg, rows, tallies, ll, rep, preds, mu, wlist):
     """Re-select each row's form from Kaggle candidates + local beams, restricted to the chosen class."""
-    masks, cls_ = decide.last
+    masks, cls_ = decide.last[0], decide.last[1]
+    reps_ = decide.last[2] if len(decide.last) > 2 else None
     tokens = []
     for i, r in enumerate(rows):
         c = cls_[i]
@@ -529,7 +587,8 @@ def pooled(seg, rows, tallies, ll, rep, preds, mu, wlist):
             for s_, q in tallies[i].items():
                 if (masks[i][s_] >> c) & 1: pool[s_] += q
             for s_, q in lb[i].items():
-                if (cls_mask('3way' if rep == 'poe' else rep, s_, r.lemma_ru, r.pos, r.dialect) >> c) & 1: pool[s_] += w * q
+                rr_ = reps_[i] if reps_ else rep
+                if (cls_mask('3way' if rr_ == 'poe' else rr_, s_, r.lemma_ru, r.pos, r.dialect) >> c) & 1: pool[s_] += w * q
             if not pool: new.append(preds[i]); continue
             new.append(max(pool.items(), key=lambda x: np.log(x[1] + 1e-12) + mu * loglen(r.pos, r.feats, r.dialect, r.lemma_ru, x[0]))[0])
         res[w] = new
@@ -592,6 +651,7 @@ if args.mode == 'dev':
             print('AFTER LEAK OVERRIDE', weighted_score(after, golds))
             print('   leak override changed', dict(nov), 'fixed', dict(nfx), 'broke', dict(nbr))
         if args.dump:
+            pickle.dump(dict(leak=set(LEAK), obs_lemmas=set(l_ for l_, _, _ in LEAK) | set(_L for _L, _, _, _ in (_ctx2 if args.leak and args.leak_lem else []))), open(args.dump + '.leak', 'wb'))
             pickle.dump({s: [dict(lemma=x['row'].lemma_ru, pos=x['row'].pos, feats=x['row'].feats, dialect=x['row'].dialect,
                                   pred=x['pred'], gold=g, pool=x['pool']) for x, g in zip(segrows[s], golds[s])] for s in SEGS},
                         open(args.dump, 'wb'))

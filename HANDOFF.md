@@ -1,6 +1,6 @@
 # HANDOFF — Cyrillic Morphological Induction Grand Challenge 2026
 
-Last updated: 2026-09-25 ~04:10 UTC. Deadline: **2026-09-26 04:00 UTC**. 5 submissions per UTC day.
+Last updated: 2026-09-26 ~02:00 UTC. Deadline: **2026-09-26 04:00 UTC**. 5 submissions per UTC day.
 
 ## Leaderboard (verified 2026-09-24 ~18:40 UTC)
 | # | Team | Public |
@@ -10,6 +10,22 @@ Last updated: 2026-09-25 ~04:10 UTC. Deadline: **2026-09-26 04:00 UTC**. 5 submi
 | 3 | FOYSAL | 0.69435 |
 | 8 | **Md. Hamid Hosen** | **0.68003** (`runs/final/var_complete_poe.csv`) |
 | 10 | keeaitec | 0.67077 |
+
+## 2026-09-26 public noise-copy leak (disclosed by the user on the forum, topic 743193)
+Options in `src/final.py`: `--leak 1 --leak_ctx 1` (pool-matched copies: row overrides + prior observations),
+`--leak_lem 85,5` (spelling-matched copies as extra observations), `--cache_tag` (separate local-beam cache per run).
+| holdout variant | score |
+|---|---|
+| no leak | 0.65981 |
+| overrides only | 0.66314 |
+| overrides + observations | 0.67310 |
+| + spelling match 85,5 | 0.67442 |
+Submitted: `runs/final/sub_leak_ctx.csv` (3 local models) and `runs/final/sub_leak5_lem_b.csv` (5 models + spelling match).
+| + prior weight 5 for unseen lemmas with leaked obs (`--obs_cfg`) | 0.67482 |
+| (tried, no gain) leaked forms as local-model context `--leak_stem 1` | 0.67445 |
+| (tried, worse) 3way λ5 joint for all unseen | 0.67067 |
+Also submitted `runs/final/sub_leak5_obs.csv` (last, best holdout).
+Suggested finals: `sub_leak5_obs.csv` + `var_complete_poe.csv` (no-leak hedge).
 
 ## 2026-09-25 holdout checks
 - When the stress class is right, EM is .988 transfer / .990 complete / .977 wug / .964 unseen.
