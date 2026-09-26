@@ -105,3 +105,7 @@ Use `--device cpu` when MPS is unavailable. Use a new cache tag for each clean r
 The host prohibited deliberate exploitation of copied labeled forms to recover hidden test information. Follow the exclusions in [QUARANTINE_HOST_RULING.md](runs/final/QUARANTINE_HOST_RULING.md).
 
 Leak-derived submissions, observations, caches, and tuning evidence are excluded from the clean solution. Do not enable `--leak`, `--leak_lem`, `--leak_stem`, or `--obs_cfg`, or activate leak context. Do not reuse overwritten untagged caches or quarantined caches. Historical automation scripts may submit automatically; use the explicit local commands above for reproduction.
+
+## License
+
+The project code and documentation are available under the [MIT License](LICENSE). Competition data and third-party materials remain subject to their own terms.
