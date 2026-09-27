@@ -2,7 +2,7 @@
 
 Character-level morphological generation for a synthetic Cyrillic language, combining context-aware Transformers with explicit stress-paradigm inference.
 
-[Competition](https://www.kaggle.com/competitions/cyrillic-morphological-induction-grand-challenge) · [Solution writeup](SOLUTION_WRITEUP.md)
+[Competition](https://www.kaggle.com/competitions/cyrillic-morphological-induction-grand-challenge) · [Kaggle writeup](https://www.kaggle.com/competitions/cyrillic-morphological-induction-grand-challenge/writeups/14th-place-solution-char-transformers-explicit) · [Solution writeup (repo copy)](SOLUTION_WRITEUP.md) · [Citation](#citation)
 
 ## Results
 
@@ -119,6 +119,22 @@ Use `--device cpu` when MPS is unavailable. Use a new cache tag for each clean r
 The host prohibited deliberate exploitation of copied labeled forms to recover hidden test information. Follow the exclusions in [QUARANTINE_HOST_RULING.md](runs/final/QUARANTINE_HOST_RULING.md).
 
 Leak-derived submissions, observations, caches, and tuning evidence are excluded from the clean solution. Do not enable `--leak`, `--leak_lem`, `--leak_stem`, or `--obs_cfg`, or activate leak context. Do not reuse overwritten untagged caches or quarantined caches. Historical automation scripts may submit automatically; use the explicit local commands above for reproduction.
+
+## Citation
+
+If you use this work, please cite the Kaggle writeup:
+
+Md. Hamid Hosen, Esfer Sami. *14th Place Solution: Char Transformers + Explicit Stress-Paradigm Inference*. https://www.kaggle.com/competitions/cyrillic-morphological-induction-grand-challenge/writeups/14th-place-solution-char-transformers-explicit. 2026. Kaggle.
+
+```bibtex
+@misc{hosen2026cmi14th,
+  author       = {Md. Hamid Hosen and Esfer Sami},
+  title        = {14th Place Solution: Char Transformers + Explicit Stress-Paradigm Inference},
+  year         = {2026},
+  howpublished = {\url{https://www.kaggle.com/competitions/cyrillic-morphological-induction-grand-challenge/writeups/14th-place-solution-char-transformers-explicit}},
+  note         = {Kaggle}
+}
+```
 
 ## License
 
