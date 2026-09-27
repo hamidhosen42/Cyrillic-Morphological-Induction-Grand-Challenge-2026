@@ -6,12 +6,14 @@ Character-level morphological generation for a synthetic Cyrillic language, comb
 
 ## Results
 
-| Clean submission | Recorded public score |
-|---|---:|
-| `runs/final/var_complete_poe.csv` | **0.68003** |
-| `runs/final/sub_final_v4.csv` | 0.67968 |
+**Final position: 14th of 66 teams on the private leaderboard** (team Hack2Publish).
 
-These are historical public scores. They do not establish a private score or final rank. See the writeup for validation results and limitations.
+| Final submission (both clean) | Private | Public |
+|---|---:|---:|
+| `runs/final/var_complete_poe.csv` | **0.67529** | 0.68003 |
+| `runs/final/sub_final_v4.csv` | 0.67500 | 0.67968 |
+
+The public leaderboard lists the team 13th with 0.68648. That figure comes from a leak-based submission made before the host's ruling, and it was not selected as a final. See the [writeup](SOLUTION_WRITEUP.md) for details.
 
 ## Approach
 
